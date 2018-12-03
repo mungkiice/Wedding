@@ -19,6 +19,7 @@ class CreateReservationsTable extends Migration
             $table->date('date');
             $table->enum('status', [
                 'cancel',
+                'pending',
                 'done'
             ]);
             $table->boolean('is_verified');
