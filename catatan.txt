@@ -1,0 +1,41 @@
+afif, wahid -> jadwal kuliah, 60%. di tes masih ada eror, eror yang tidak dikenal. komunikasi lancar antar anggota.
+udin, eko -> poin keaktifan, 55%. kurang paham laravel. komunikasi tidak lancar, eko ilang.
+rahma, wildan -> jadwal piket, 20%. baru ketemu hari H.
+al, ais -> jadwal uas, 40%. baru ketemu hari H.
+reza -> logo kurang internal.
+aji -> dark mode, 70%. kebanyakan projek akhir.
+
+yang hadir {
+	afif,
+	udin,
+	rahma,
+	wildan,
+	al,
+	ais,
+	reza,
+	wahid,
+	aji
+}
+
+saran {
+	study grup semester 2 tidak ada -rahma
+	study grup ditambahin dikit2 di semester 2 untuk review semester 1 -wildan
+	study grup butuh diperbaiki, kadang perlu dituntun -al
+	diagendakan kumpul, sekedar kumpul untuk pererat -ais
+}
+
+ilang {
+	
+}
+
+objek {
+	our service,
+	photo gallery,
+	vendor{
+		kategori, wilayah, harga
+	},
+	laporan,
+	booking calendar,
+	edit profile,
+	
+}

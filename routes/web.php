@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 // Auth::routes();
 
@@ -23,5 +21,7 @@ Route::post('/login', 'LoginController@login')->middleware('guest');
 Route::post('/logout', 'LoginController@logout')->middleware('auth');
 Route::get('/register', 'RegisterController@showRegistrationForm')->name('register')->middleware('guest');
 Route::post('/register', 'RegisterController@register');
-
+Route::get('/profile', 'HomeController@showProfile')->middleware('auth');
+Route::get('/reservation', 'ReservationController@index');
+Route::post('/reservation', 'ReservationController@store')->middleware('auth');
 Route::get('/admin', 'HomeController@adminIndex')->middleware('admin');

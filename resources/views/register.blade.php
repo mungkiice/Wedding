@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>SidoRabi | Wedding Organizer</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -40,23 +40,24 @@
                             <br/>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-                                <input type="text" class="form-control" placeholder="Your Name" name="name" />
+                                <input type="text" class="form-control" placeholder="Your Name" name="name" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                <input type="text" class="form-control" placeholder="Desired Username" name="username" />
+                                <input type="text" class="form-control" placeholder="Desired Username" name="username" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" class="form-control" placeholder="Your Email" name="email" />
+                                <input type="email" class="form-control" placeholder="Your Email" name="email" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input type="password" class="form-control" placeholder="Enter Password" name="password" />
+                                <input id="password" type="password" class="form-control" placeholder="Enter Password" name="password" required />
                             </div>
+                            <span id="message"></span>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input type="password" class="form-control" placeholder="Retype Password" name="password_confirmation" />
+                                <input id="confirm_password" type="password" class="form-control" placeholder="Retype Password" name="password_confirmation" required />
                             </div>
                             <button type="submit" class="btn btn-success">Register Me</button>
                             <hr />
@@ -81,6 +82,15 @@
     <script src="{{ asset('js/jquery.metisMenu.js') }}"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script>
+        $('#confirm_password').on('keyup', function () {
+          if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('cocok').css('color', 'green');
+        } else 
+        $('#confirm_password').setCustomValidity('Konfirmasi password tidak cocok');
+        // $('#message').html('tidak cocok').css('color', 'red');
+    });
+</script>
 
 </body>
 </html>
