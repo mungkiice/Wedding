@@ -10,6 +10,6 @@ $factory->define(App\Vendor::class, function (Faker $faker) {
         },
         // 'kategori' => $faker->randomElement(['mc', 'venue', 'photography', 'catering']),
         'photo' => 'vendor/' . $faker->image('public/storage/vendor', 800, 600, 'nature', false),
-        'price' => 10000000
+        'price' => $faker->numberBetween(1000000, 10000000)
     ];
 });

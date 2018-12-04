@@ -26,7 +26,7 @@
     FORM RESERVATION </h2>
     <form class="form-horizontal" action="/reservation" method="POST">
       {{ csrf_field() }}
-      <div class="form-group" style="margin-left:20%; margin-right:10%">
+<!--       <div class="form-group" style="margin-left:20%; margin-right:10%">
         <label class="display-7">Name:</label>
         <div class="col-sm-10">
           <input type="text" class="form-control"  placeholder="Enter name" name="name">
@@ -43,11 +43,21 @@
         <div class="col-sm-10">
           <input type="email" class="form-control" placeholder="Enter email" name="email">
         </div>
+      </div> -->
+      <div class="form-group" style="margin-left: 20%; margin-right: 10%;">
+        <label class="display-7">Paket:</label>
+        <div class="col-sm-10">
+          <select class="form-control" name="packet">
+            <option value="paket akad/pemberkatan">Paket Akad/Pemberkatan</option>
+            <option value="paket resepsi">Paket Resepsi</option>
+            <option value="paket akad/pemberkatan dan resepsi">Paket Akad/Pemberkatan dan Resepsi</option>
+          </select>
+        </div>
       </div>
       <div class="form-group" style="margin-left:20%; margin-right:10%">
         <label class="display-7">Date:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="datepicker" name="Tanggal" value="{{date('m/d/Y', strtotime($date))}}">
+          <input type="text" class="form-control" name="date" value="{{date('m/d/Y', strtotime($date))}}" readonly>
         </div>
       </div>
       <div class="form-group" style="margin-left:20%; margin-right:10%">
@@ -80,11 +90,11 @@
 
   <script src="{{ asset('bootstrap/js/jquery-1.12.4.js') }}"></script>
   <script src="{{ asset('bootstrap/js/jquery-ui.js') }}"></script>
-  <script>
+<!--   <script>
     $( function() {
       $( "#datepicker" ).datepicker();
     } );
-  </script>
+  </script> -->
 
 
   <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbri-down mbr-iconfont"></i></a></div>

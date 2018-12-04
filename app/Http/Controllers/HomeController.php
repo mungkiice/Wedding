@@ -17,10 +17,4 @@ class HomeController extends Controller
     {
     	return view('admin.index');
     }
-
-    public function showProfile()
-    {
-        $user = auth()->user();
-    	return view('profile', compact('user'));
-    }
 }

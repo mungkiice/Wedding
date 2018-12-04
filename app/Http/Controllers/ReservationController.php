@@ -3,33 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Reservation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
     public function index()
     {
-    	$reservations = Reservation::all();
+    	$reservations = Reservation::where('status', 'waiting for the Day')->get();
     	return view('schedule', compact('reservations'));
-     //    $book_list = [];
-    	// foreach ($reservations as $reservation) {
-    	// 	$book_list[] = Calendar::event(
-    	// 		$reservation->user->username,
-    	// 		true,
-    	// 		new \DateTime($reservation->date),
-    	// 		new \DateTime($reservation->date),
-     //            $reservation->id,
-     //            [
-     //                'url' => '/',
-     //                'color' => '#cddc39',
-     //                'backgroundColor' => '#512DA8',
-     //                'borderColor' => '#000',
-     //                // 'textColor' => '#7B1FA2',
-     //            ]
-    	// 	);
-    	// }
-    	// $calendar = Calendar::addEvents($book_list);
-    	// return view('schedule', compact('calendar'));
     }
 
     public function create($date)
@@ -39,6 +21,22 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-    	
+        if ($request->date == null) {
+            return redirect()->back();
+        }
+    	Reservation::create([
+            'user_id' => auth()->user()->id,
+            'date' => Carbon::parse($request->date)->format('Y-m-d'),
+            'packet' => $request->packet,
+        ]);
+        return redirect('/');
+    }
+
+    public function addVendors(Request $request)
+    {
+        $reservation = auth()->user()->reservations()->latest()->first();
+        foreach ($request->vendorID as $vendorID) {
+            $reservation->vendors()->attach($vendorID);
+        }
     }
 }

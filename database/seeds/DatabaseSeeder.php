@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         factory('App\User')->create([
-            'name' => 'Muhammad Iqbal Kurniawan',
-            'email' => 'm.kurniawanibal@gmail.com',
-            'username' => 'mungkiice'
+            'name' => 'Nefiana Mey',
+            'email' => 'nefianamey@gmail.com',
+            'username' => 'nefianamey'
         ]);
         factory('App\Gallery', 5)->create();
         factory('App\Category')->create([
@@ -32,8 +32,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'photography'
         ]);
         factory('App\Category')->create([
-            'name' => 'category'
+            'name' => 'catering'
         ]);
+        factory('App\Category')->create([
+            'name' => 'makeup'
+        ]);
+        factory('App\Category')->create([
+            'name' => 'decoration'
+        ]);
+        factory('App\Category')->create([
+            'name' => 'sound system'
+        ]);
+
 
         $categories = Category::all();
         $categories->each(function($category){

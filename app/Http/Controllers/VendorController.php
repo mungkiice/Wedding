@@ -2,20 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Vendor;
 use Illuminate\Http\Request;
 
 class VendorController extends Controller
 {
-    public function index()
+    public function index($categoryName = null)
+    {
+        $categories = Category::all();
+        if ($categoryName != null) {
+            $category = Category::where('name', $categoryName)->first();
+            if ($category != null) {
+                $vendors = $category->vendors()->latest()->get();
+            }
+        }else{
+            $vendors = Vendor::latest()->get();    
+        }
+        return view('vendors', compact('categories', 'vendors'));
+    }
+
+
+    public function adminIndex()
     {
         $vendors = Vendor::latest()->get();
         return view();
     }
 
-    public function show($id)
+    public function show($vendorID)
     {
-    	$vendor = Vendor::find($id);
+    	$vendor = Vendor::find($vendorID);
         return view();
     }
 
@@ -30,14 +46,14 @@ class VendorController extends Controller
         ]);
     }
 
-    public function edit($id)
+    public function edit($vendorID)
     {
-        $vendor = Vendor::find($id);
+        $vendor = Vendor::find($vendorID);
     }
     
-    public function update($id, Request $request)
+    public function update($vendorID, Request $request)
     {
-        $vendor = Vendor::find($id);
+        $vendor = Vendor::find($vendorID);
         if ($vendor != null) {
             $vendor->update([
 
@@ -46,9 +62,9 @@ class VendorController extends Controller
         return redirect()->back();
     }
 
-    public function destroy($id)
+    public function destroy($vendorID)
     {
-    	$vendor = Vendor::find($id);
+    	$vendor = Vendor::find($vendorID);
         if ($vendor != null) {
             $vendor->delete();
         }

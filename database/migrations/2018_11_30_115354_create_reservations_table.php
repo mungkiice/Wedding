@@ -17,12 +17,18 @@ class CreateReservationsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->date('date');
-            $table->enum('status', [
-                'cancel',
-                'pending',
-                'done'
+            $table->enum('packet', [
+                'paket akad/pemberkatan',
+                'paket resepsi',
+                'paket akad/pemberkatan dan resepsi'
             ]);
-            $table->boolean('is_verified');
+            $table->enum('status', [
+                'canceled',
+                'planning',
+                'waiting for verification',
+                'waiting for the Day',
+                'done'
+            ])->default('planning');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

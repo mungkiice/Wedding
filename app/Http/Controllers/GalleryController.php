@@ -13,9 +13,9 @@ class GalleryController extends Controller
         return view();
     }
 
-    public function show($id)
+    public function show($galleryID)
     {
-    	$gallery = Gallery::find($id);
+    	$gallery = Gallery::find($galleryID);
         return view();
     }
 
@@ -32,15 +32,15 @@ class GalleryController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id)
+    public function edit($galleryID)
     {
-        $gallery = Gallery::find($id);
+        $gallery = Gallery::find($galleryID);
         return view();
     }
 
-    public function update($id, Request $request)
+    public function update($galleryID, Request $request)
     {
-        $gallery = Gallery::find($id);
+        $gallery = Gallery::find($galleryID);
         if ($gallery != null) {    
             $gallery->update([
                 ''
@@ -49,9 +49,9 @@ class GalleryController extends Controller
         return redirect()->back();
     }
     
-    public function destroy($id)
+    public function destroy($galleryID)
     {
-        $gallery = Gallery::find($id);
+        $gallery = Gallery::find($galleryID);
         if ($gallery != null) {
             $gallery->delete();
         }

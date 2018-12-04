@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
- <style type="text/css">
- p{
-     font-family: serif;
-     line-height: 1.75em;
-     font-size: 18px;
- }
- i{
-     font-family: sans;
-     color: orange;
- }
- .emp-profile{
+   <style type="text/css">
+   p{
+       font-family: serif;
+       line-height: 1.75em;
+       font-size: 18px;
+   }
+   i{
+       font-family: sans;
+       color: orange;
+   }
+   .emp-profile{
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
@@ -138,7 +138,7 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5>
-                            Nefiana Mey Ipradita
+                            {{ auth()->user()->name }}
                         </h5>
                         <h6>
                             Banker
@@ -208,6 +208,32 @@
                                     <p>Nefiana Mey & Kim Han Bin</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Reservasi Atas Nama</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Tanggal</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Status Reservasi</label>
+                                </div>
+                            </div>
+                            @foreach(auth()->user()->reservations()->latest()->get() as $reservation)
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p>{{ $reservation->user->name }}</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{ $reservation->date }}</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{ $reservation->status }}</p>
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

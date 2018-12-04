@@ -39,35 +39,37 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-black display-4" href="/#features18-5">Photo Gallery</a>
                         <a class="dropdown-item text-black display-4" href="/#header12-6">Vendor</a>
-                        <a class="dropdown-item text-black display-4" href="/#gallery2-b">Promo Vendor</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="Services.html">
+                    <a class="nav-link link text-black display-4" href="/services">
                     Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="AboutUs.html">About Us</a>
+                    <a class="nav-link link text-black display-4" href="/aboutus">About Us</a>
                 </li>
                 @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="/profile">My Profile</a>
                 </li>
-                @endif
-            </ul>
-            <div class="navbar-buttons mbr-section-btn">
-                @if(Auth::guest())
-                <a class="btn btn-sm btn-success display-4" href="/login">Login</a>
-                @else
-                <a class="btn btn-sm btn-success display-4" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-                @endif
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="/user/cart">My Cart</a>
+              </li>
+              @endif
+          </ul>
+          <div class="navbar-buttons mbr-section-btn">
+            @if(Auth::guest())
+            <a class="btn btn-sm btn-success display-4" href="/login">Login</a>
+            @else
+            <a class="btn btn-sm btn-success display-4" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+            @endif
         </div>
-    </nav>
+    </div>
+</nav>
 </section>
 
 <section class="engine">
@@ -193,7 +195,7 @@
                 <div class="icons-media-container mbr-white">
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="">
+                            <a href="/vendors/mc">
                                 <span class="mbr-iconfont mbri-github" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
@@ -203,7 +205,7 @@
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="">
+                            <a href="/vendors/venue">
                                 <span class="mbr-iconfont mbri-home" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
@@ -213,7 +215,7 @@
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="">
+                            <a href="/vendors/photography">
                                 <span class="mbr-iconfont mbri-camera" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
@@ -222,7 +224,7 @@
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="">
+                            <a href="/vendors/catering">
                                 <span class="mbr-iconfont mbri-delivery" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
@@ -233,26 +235,23 @@
         </div>
     </div>
 
-    <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
+<!--     <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
         <a href="#next">
             <i class="mbri-down mbr-iconfont"></i>
         </a>
-    </div>
+    </div> -->
 </section>
 
-<section class="mbr-gallery mbr-slider-carousel cid-r9uqXHO3cT" id="gallery2-b" data-rv-view="415">
-
-
-
+<!-- <section class="mbr-gallery mbr-slider-carousel cid-r9uqXHO3cT" id="gallery2-b" data-rv-view="415">
     <div class="container">
-        <div><!-- Filter -->
+        <div>
             <div class="mbr-gallery-filter container gallery-filter-active">
                 <ul buttons="0">
                     <li class="mbr-gallery-filter-all">
                         <a class="btn btn-md btn-primary-outline active display-4" href="">All</a>
                     </li>
                 </ul>
-            </div><!-- Gallery -->
+            </div>
             <div class="mbr-gallery-row">
                 <div class="mbr-gallery-layout-default">
                     <div>
@@ -282,7 +281,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            </div><!-- Lightbox -->
+            </div>
             <div data-app-prevent-settings="" class="mbr-slider modal fade carousel slide" tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery2-b">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -320,7 +319,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="cid-r9us9JC98b" id="footer2-e" data-rv-view="430">
     <div class="container">

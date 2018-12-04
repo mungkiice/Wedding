@@ -10,9 +10,9 @@
         <li class="nav-item dropdown open">
           <a class="nav-link link dropdown-toggle text-white display-4" href="index.html" data-toggle="dropdown-submenu" aria-expanded="true">Home</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item text-black display-4" href="index.html#features18-5">Photo Gallery</a>
-            <a class="dropdown-item text-black display-4" href="index.html#header12-6">Vendor</a>
-            <a class="dropdown-item text-black display-4" href="index.html#gallery2-b">Promo Vendor</a>
+            <a class="dropdown-item text-black display-4" href="/#features18-5">Photo Gallery</a>
+            <a class="dropdown-item text-black display-4" href="/#header12-6">Vendor</a>
+            <!-- <a class="dropdown-item text-black display-4" href="/#gallery2-b">Promo Vendor</a> -->
           </div>
         </li>
         <li class="nav-item">
@@ -24,6 +24,9 @@
         @if(Auth::check())
         <li class="nav-item">
           <a class="nav-link link text-white display-4" href="/profile">My Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link text-white display-4" href="/user/cart">My Cart</a>
         </li>
         @endif
       </ul>
