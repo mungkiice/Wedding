@@ -19,7 +19,7 @@ class VendorController extends Controller
         }else{
             $vendors = Vendor::latest()->get();    
         }
-        return view('vendors', compact('categories', 'vendors'));
+        return view('vendor', compact('categories', 'vendors'));
     }
 
 
@@ -37,26 +37,41 @@ class VendorController extends Controller
 
     public function create()
     {
-        return view();    
+        $categories = Category::all();
+        return view('admin.vendor-form', compact('categories'));    
     }
 
     public function store(Request $request)
     {
     	$vendor = Vendor::create([
+            'category_id' => $request->category_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'photo' => $request->photo->store('vendor', 'public')
         ]);
+        return redirect()->back();
     }
 
     public function edit($vendorID)
     {
         $vendor = Vendor::find($vendorID);
+        $categories = Category::all();
+
+        return view('admin.vendor-edit-form', compact('vendor', 'categories'));
     }
     
     public function update($vendorID, Request $request)
     {
         $vendor = Vendor::find($vendorID);
         if ($vendor != null) {
+            if ($request->hasFile('photo')) {
+                $path = $request->photo->store('vendors', 'public');
+            }
             $vendor->update([
-
+                'category_id' => $request->category_id ?: $vendor->category_id,
+                'name' => $request->name ?: $vendor->name,
+                'price' => $request->price ?: $vendor->price,
+                'photo' => $path ?: $vendor->photo
             ]);
         }	
         return redirect()->back();

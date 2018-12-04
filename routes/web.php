@@ -25,7 +25,7 @@ Route::get('/user/cart/clear', 'UserController@clearCart')->middleware('auth');
 Route::get('/user/{vendorID}/cart', 'UserController@addToCart')->middleware('auth');
 
 
-Route::get('/aboutus', 'HomeController@showAboutUs');
+Route::get('/aboutus', 'AboutUsController@showAboutUs');
 Route::get('/services', 'HomeController@services');;
 Route::get('/vendors/{categoryName?}', 'VendorController@index');
 
@@ -35,7 +35,8 @@ Route::post('/reservation', 'ReservationController@store')->middleware('auth');
 Route::post('/reservation/addVendor', 'ReservationController@addVendors')->middleware('auth');
 
 
-Route::get('/admin/aboutus', 'AboutUsController@adminShowAboutUs');
+Route::get('/admin/aboutus', 'AboutUsController@adminShowAboutUs')->middleware('admin');
+Route::post('/admin/aboutus', 'AboutUsController@updateAboutUs')->middleware('admin');
 Route::get('/admin', 'HomeController@adminIndex')->middleware('admin');
 Route::get('/admin/vendor', 'VendorController@adminIndex')->middleware('admin');
 Route::post('/admin/vendor', 'VendorController@store')->middleware('admin');
