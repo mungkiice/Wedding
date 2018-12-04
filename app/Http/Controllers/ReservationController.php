@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reservation;
+use App\Vendor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class ReservationController extends Controller
         if ($request->date == null) {
             return redirect()->back();
         }
-    	Reservation::create([
+        Reservation::create([
             'user_id' => auth()->user()->id,
             'date' => Carbon::parse($request->date)->format('Y-m-d'),
             'packet' => $request->packet,
@@ -36,7 +37,15 @@ class ReservationController extends Controller
     {
         $reservation = auth()->user()->reservations()->latest()->first();
         foreach ($request->vendorID as $vendorID) {
-            $reservation->vendors()->attach($vendorID);
+            $vendor = Vendor::find($vendorID);
+            if ($vendor != null) {
+                $reservation->update([
+                    'price' => $reservation->price + $vendor->price
+                ]);
+                $reservation->vendors()->attach($vendorID);
+            }
         }
+        auth()->user()->cart->vendors()->detach();
+        return redirect('/');
     }
 }

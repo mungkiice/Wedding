@@ -70,7 +70,7 @@
 						@endif
 						@foreach($cart->vendors as $vendor)
 						<tr>
-							<td class="product-col">
+							<td class="product-col" data-id="{{$vendor->id}}">
 								<img src="/storage/{{$vendor->photo}}" alt="">
 								<div class="pc-title">
 									<h4>{{$vendor->name}}</h4>
@@ -138,7 +138,8 @@
 								<li>Shipping<span>Free</span></li>
 								<li class="total">Total<span>Rp. {{number_format($subtotal)}}</span></li>
 							</ul>
-							<a class="site-btn btn-full" href="/reservation">Proceed to checkout</a>
+							<a class="site-btn btn-full" onclick="event.preventDefault();
+							postVendors();">Proceed to checkout</a>
 						</div>
 					</div>
 				</div>
@@ -154,5 +155,27 @@
 	<script src="{{ asset('theplaza/js/main.js') }}"></script>
 	<script src="{{ asset('theme/js/script.js') }}"></script>
 	<script src="{{ asset('dropdown/js/script.min.js') }}"></script>
-    </body>
+	<script>
+		function postVendors(){
+			var csrf = $('meta[name="csrf-token"]').attr('content');
+			var vendorID = [];
+			var i = 0;
+			$('td.product-col').each(function(){
+				vendorID.push($(this).data('id'));
+			});
+
+			$.post({
+				url: '/reservation/addVendor',
+				type: 'POST',
+				data: {
+					'vendorID' : vendorID, 
+					'_token': csrf
+				},
+				success: function(response) {
+					window.location = '/'
+				}       
+			})
+		}
+	</script>
+</body>
 </html>

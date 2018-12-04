@@ -29,6 +29,7 @@ class CreateReservationsTable extends Migration
                 'waiting for the Day',
                 'done'
             ])->default('planning');
+            $table->decimal('price', 13, 0)->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
