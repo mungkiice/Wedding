@@ -48,4 +48,10 @@ class ReservationController extends Controller
         auth()->user()->cart->vendors()->detach();
         return redirect('/');
     }
+
+    public function adminIndex()
+    {
+        $reservations = Reservation::latest()->get();
+        return view('admin.reservations', compact('reservations'));
+    }
 }

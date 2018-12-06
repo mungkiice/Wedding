@@ -42,6 +42,10 @@
 							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Yani Catering" name="name">
 						</div>
 						<div class="form-group">
+							<label>Informasi</label>
+							<textarea class="form-control" rows="3" name="information"></textarea>
+						</div>
+						<div class="form-group">
 							<label for="exampleInputPassword1">Harga</label>
 							<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Dalam Satuan Rupiah" name="price">
 						</div>

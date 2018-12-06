@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sidorabi Admin| Wdding Organizer</title>
+  <title>Sidorabi Admin| Wedding Organizer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -19,6 +19,7 @@
    <link rel="stylesheet" href="{{ asset('adminlte/dist/css/skins/_all-skins.min.css') }}">
    <!-- bootstrap wysihtml5 - text editor -->
    <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+   <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,6 +40,17 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
     @include('admin.sidebar')
 
     <div class="content-wrapper">
+      <section class="content-header">
+        <h1>
+          @yield('page')
+          <!-- <small>advanced tables</small> -->
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#">@yield('page')</a></li>
+          <li class="active">@yield('section')</li>
+        </ol>
+      </section>
       @yield('content')
     </div>
     <footer class="main-footer">
@@ -230,17 +242,29 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
  <script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/fastclick/lib/fastclick.js') }}"></script>
- <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
+ <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script><script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+ <script src="{{asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
  <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/ckeditor/ckeditor.js') }}"></script>
  <script src="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
  <script>
+  // $(function () {
+  //   // Replace the <textarea id="editor1"> with a CKEditor
+  //   // instance, using default configuration.
+  //   CKEDITOR.replace('editor1')
+  //   //bootstrap WYSIHTML5 - text editor
+  //   $('.textarea').wysihtml5()
+  // })
   $(function () {
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1')
-    //bootstrap WYSIHTML5 - text editor
-    $('.textarea').wysihtml5()
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
   })
 </script>
 </body>

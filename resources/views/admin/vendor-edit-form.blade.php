@@ -43,6 +43,10 @@
 							<input type="text" class="form-control" id="exampleInputPassword1" name="name" value="{{$vendor->name}}">
 						</div>
 						<div class="form-group">
+							<label>Informasi</label>
+							<textarea class="form-control" rows="3" name="information">{{$vendor->information}}</textarea>
+						</div>
+						<div class="form-group">
 							<label for="exampleInputPassword1">Harga</label>
 							<input type="number" class="form-control" id="exampleInputPassword1" name="price" value="{{$vendor->price}}">
 						</div>

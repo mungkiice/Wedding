@@ -34,7 +34,7 @@ Route::get('/reservation/create/{date}', 'ReservationController@create');
 Route::post('/reservation', 'ReservationController@store')->middleware('auth');
 Route::post('/reservation/addVendor', 'ReservationController@addVendors')->middleware('auth');
 
-
+Route::get('/admin/reservation', 'ReservationController@adminIndex')->middleware('admin');
 Route::get('/admin/aboutus', 'AboutUsController@adminShowAboutUs')->middleware('admin');
 Route::post('/admin/aboutus', 'AboutUsController@updateAboutUs')->middleware('admin');
 Route::get('/admin', 'HomeController@adminIndex')->middleware('admin');

@@ -34,8 +34,14 @@
           </ul>
         </li> -->
         <li>
+          <a href="/admin/reservation">
+            <i class="fa fa-file"></i>
+            <span>Reservasi</span>
+          </a>
+        </li>
+        <li>
           <a href="/admin/vendor">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-home"></i>
             <span>Vendor</span>
             <!-- <span class="pull-right-container">
               <span class="label label-primary pull-right">4</span>
@@ -47,6 +53,12 @@
             <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul> -->
+        </li>
+        <li>
+          <a href="/admin/gallery">
+            <i class="fa fa-image"></i>
+            <span>Gallery</span>
+          </a>
         </li>
         <!-- <li>
           <a href="../widgets.html">

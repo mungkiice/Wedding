@@ -19,14 +19,14 @@ class VendorController extends Controller
         }else{
             $vendors = Vendor::latest()->get();    
         }
-        return view('vendor', compact('categories', 'vendors'));
+        return view('vendors', compact('categories', 'vendors'));
     }
 
 
     public function adminIndex()
     {
         $vendors = Vendor::latest()->get();
-        return view();
+        return view('admin.vendors', compact('vendors'));
     }
 
     public function show($vendorID)

@@ -10,7 +10,7 @@ class GalleryController extends Controller
     public function index()
     {
     	$galleries = Gallery::latest()->get();
-        return view();
+        return view('admin.galleries', compact('galleries'));
     }
 
     public function show($galleryID)
