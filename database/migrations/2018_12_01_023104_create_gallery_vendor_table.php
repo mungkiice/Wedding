@@ -17,8 +17,8 @@ class CreateGalleryVendorTable extends Migration
             $table->integer('gallery_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
 
-            $table->foreign('vendor_id')->references('id')->on('vendors');
-            $table->foreign('gallery_id')->references('id')->on('galleries');
+            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
+            $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
         });
     }
 

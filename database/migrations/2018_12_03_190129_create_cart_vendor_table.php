@@ -17,8 +17,8 @@ class CreateCartVendorTable extends Migration
             $table->integer('cart_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
 
-            $table->foreign('cart_id')->references('id')->on('carts');
-            $table->foreign('vendor_id')->references('id')->on('vendors');
+            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
+            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
         });
     }
 

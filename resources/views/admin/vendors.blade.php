@@ -47,11 +47,35 @@
                     <td style="max-width: 30px;">
                       <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/vendor/{{$vendor->id}}/edit">Edit</a>
                       <br>
-                      <a style="width: 100%" class="btn btn-danger" href="">Delete</a>
+                      <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">Delete</a>
                     </td>
                   </tr>
-                  @endforeach
-                </tbody>
+                  <div class="modal modal-warning fade" id="modal-warning">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Warning Modal</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                          </div>
+                          <div class="modal-footer">
+                            <form method="POST" action="/admin/vendor/{{$vendor->id}}">
+                              {{csrf_field()}}
+                              {{method_field('DELETE')}}
+                              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-outline">Save changes</button>
+                            </form>
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                    </div>
+                    @endforeach
+                  </tbody>
 <!--                 <tfoot>
                 <tr>
                   <th>Rendering engine</th>

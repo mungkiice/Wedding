@@ -17,8 +17,8 @@ class CreateReservationVendorTable extends Migration
             $table->integer('reservation_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
 
-            $table->foreign('vendor_id')->references('id')->on('vendors');
-            $table->foreign('reservation_id')->references('id')->on('reservations');            
+            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');            
         });
     }
 

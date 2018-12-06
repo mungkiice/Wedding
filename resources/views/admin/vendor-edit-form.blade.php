@@ -1,18 +1,7 @@
 @extends('admin.app')
-
+@section('page', 'Vendor')
+@section('section', 'Edit Form')
 @section('content')
-<!-- Content Header (Page header) -->
-<section class="content-header">
-	<h1>
-		Form Vendor
-		<small>create</small>
-	</h1>
-<!--       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
-    </ol> -->
-</section>
 
 <!-- Main content -->
 <section class="content">
@@ -22,7 +11,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Vendor</h3>
+					<h3 class="box-title">Edit Form</h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->

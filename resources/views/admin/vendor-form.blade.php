@@ -1,18 +1,7 @@
 @extends('admin.app')
-
+@section('page', 'Vendor')
+@section('section', 'Create Form')
 @section('content')
-<!-- Content Header (Page header) -->
-<section class="content-header">
-	<h1>
-		Form Vendor
-		<small>create</small>
-	</h1>
-<!--       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
-    </ol> -->
-</section>
 
 <!-- Main content -->
 <section class="content">
@@ -22,7 +11,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Vendor</h3>
+					<h3 class="box-title">Create Form</h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
@@ -39,15 +28,15 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nama</label>
-							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Yani Catering" name="name">
+							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="ex. Yani Catering" name="name">
 						</div>
 						<div class="form-group">
 							<label>Informasi</label>
-							<textarea class="form-control" rows="3" name="information"></textarea>
+							<textarea class="form-control" rows="3" name="information" placeholder="ex. Kami menyediakan makanan terbaik..."></textarea>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Harga</label>
-							<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Dalam Satuan Rupiah" name="price">
+							<input type="number" class="form-control" id="exampleInputPassword1" placeholder="dalam satuan rupiah" name="price">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputFile">Foto Vendor</label>

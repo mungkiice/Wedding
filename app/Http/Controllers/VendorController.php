@@ -46,10 +46,11 @@ class VendorController extends Controller
     	$vendor = Vendor::create([
             'category_id' => $request->category_id,
             'name' => $request->name,
+            'information' => $request->information,
             'price' => $request->price,
             'photo' => $request->photo->store('vendor', 'public')
         ]);
-        return redirect()->back();
+        return redirect('/admin/vendor');
     }
 
     public function edit($vendorID)
@@ -63,6 +64,7 @@ class VendorController extends Controller
     public function update($vendorID, Request $request)
     {
         $vendor = Vendor::find($vendorID);
+        $path = null;
         if ($vendor != null) {
             if ($request->hasFile('photo')) {
                 $path = $request->photo->store('vendors', 'public');
@@ -70,11 +72,12 @@ class VendorController extends Controller
             $vendor->update([
                 'category_id' => $request->category_id ?: $vendor->category_id,
                 'name' => $request->name ?: $vendor->name,
+                'information' => $request->information ?: $vendor->information,
                 'price' => $request->price ?: $vendor->price,
                 'photo' => $path ?: $vendor->photo
             ]);
         }	
-        return redirect()->back();
+        return redirect('/admin/vendor');
     }
 
     public function destroy($vendorID)
