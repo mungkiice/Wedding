@@ -190,7 +190,7 @@
             <div class="col-md-12 align-center">
                 <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-2">OUR VENDOR</h1>
                 <p class="mbr-text pb-3 mbr-white mbr-fonts-style display-5"></p>
-                <div class="mbr-section-btn align-center py-2"><a class="btn btn-md btn-primary display-4" href="index.html">MORE</a></div>
+                <!-- <div class="mbr-section-btn align-center py-2"><a class="btn btn-md btn-primary display-4" href="index.html">MORE</a></div> -->
 
                 <div class="icons-media-container mbr-white">
                     <div class="card col-12 col-md-6 col-lg-3">
@@ -230,6 +230,34 @@
                         </div>
                         <h5 class="mbr-fonts-style display-5">CATERING</h5>
                     </div>
+
+                    <div class="card col-12 col-md-6 col-lg-3">
+                        <div class="icon-block">
+                            <a href="/vendors/makeup">
+                                <span class="mbr-iconfont mbri-smile-face" style="color: rgb(35, 35, 35);" media-simple="true"></span>
+                            </a>
+                        </div>
+                        <h5 class="mbr-fonts-style display-5">MAKEUP</h5>
+                    </div>
+
+                    <div class="card col-12 col-md-6 col-lg-3">
+                        <div class="icon-block">
+                            <a href="/vendors/decoration">
+                                <span class="mbr-iconfont mbri-magic-stick" style="color: rgb(35, 35, 35);" media-simple="true"></span>
+                            </a>
+                        </div>
+                        <h5 class="mbr-fonts-style display-5">DECORATION</h5>
+                    </div>
+
+                    <div class="card col-12 col-md-6 col-lg-3">
+                        <div class="icon-block">
+                            <a href="/vendors/sound system">
+                                <span class="mbr-iconfont mbri-speed" style="color: rgb(35, 35, 35);" media-simple="true"></span>
+                            </a>
+                        </div>
+                        <h5 class="mbr-fonts-style display-5">SOUND SYSTEM</h5>
+                    </div>
+                    
                 </div>
             </div>
         </div>

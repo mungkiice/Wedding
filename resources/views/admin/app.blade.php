@@ -20,6 +20,7 @@
    <!-- bootstrap wysihtml5 - text editor -->
    <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
    <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+   <link rel="stylesheet" href="{{asset('adminlte/bower_components/select2/dist/css/select2.min.css')}}">
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -247,6 +248,8 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
  <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/ckeditor/ckeditor.js') }}"></script>
  <script src="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+
+ <script src="{{asset('adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
  <script>
   // $(function () {
   //   // Replace the <textarea id="editor1"> with a CKEditor
@@ -256,6 +259,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
   //   $('.textarea').wysihtml5()
   // })
   $(function () {
+    $('.select2').select2()
     $('#example1').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
@@ -265,6 +269,11 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
       'info'        : true,
       'autoWidth'   : false
     })
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
   })
 </script>
 </body>

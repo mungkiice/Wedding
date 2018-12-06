@@ -30,7 +30,7 @@ class ReservationController extends Controller
             'date' => Carbon::parse($request->date)->format('Y-m-d'),
             'packet' => $request->packet,
         ]);
-        return redirect('/');
+        return redirect('/vendors');
     }
 
     public function addVendors(Request $request)
@@ -40,7 +40,7 @@ class ReservationController extends Controller
             $vendor = Vendor::find($vendorID);
             if ($vendor != null) {
                 $reservation->update([
-                    'price' => $reservation->price + $vendor->price
+                    'price' => $vendor->price + $reservation->price
                 ]);
                 $reservation->vendors()->attach($vendorID);
             }
@@ -54,4 +54,30 @@ class ReservationController extends Controller
         $reservations = Reservation::latest()->get();
         return view('admin.reservations', compact('reservations'));
     }
+
+    public function edit($reservationID)
+    {
+        $reservation = Reservation::find($reservationID);
+        return view('admin.reservation-edit-form', compact('reservation'));   
+    }
+
+    public function update($reservationID, Request $request)
+    {
+        $reservation = Reservation::find($reservationID);
+        if ($reservation != null) {
+            $reservation->update([
+                'status' => $request->status ?: $reservation->status
+            ]);   
+        }
+        return redirect('/admin/reservation');
+    }
+
+    public function destroy($reservationID)
+    {
+       $reservation = Reservation::find($reservationID);
+       if ($reservation != null) {
+        $reservation->delete();
+    }
+    return redirect()->back();   
+}
 }

@@ -35,6 +35,9 @@ Route::post('/reservation', 'ReservationController@store')->middleware('auth');
 Route::post('/reservation/addVendor', 'ReservationController@addVendors')->middleware('auth');
 
 Route::get('/admin/reservation', 'ReservationController@adminIndex')->middleware('admin');
+Route::put('/admin/reservation/{reservationID}', 'ReservationController@update')->middleware('admin');
+Route::get('/admin/reservation/{reservationID}/edit', 'ReservationController@edit')->middleware('admin');
+Route::delete('/admin/reservation/{reservationID}', 'ReservationController@destroy')->middleware('admin');
 Route::get('/admin/aboutus', 'AboutUsController@adminShowAboutUs')->middleware('admin');
 Route::post('/admin/aboutus', 'AboutUsController@updateAboutUs')->middleware('admin');
 Route::get('/admin', 'HomeController@adminIndex')->middleware('admin');

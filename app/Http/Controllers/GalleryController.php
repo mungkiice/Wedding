@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use App\Vendor;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -21,32 +22,52 @@ class GalleryController extends Controller
 
     public function create()
     {
-        return view();
+        $vendors = Vendor::all();
+        return view('admin.gallery-form', compact('vendors'));
     }
 
     public function store(Request $request)
-    {
+    {   
     	$gallery = Gallery::create([
-
+            'photo' => $request->photo->store('gallery', 'public'),
+            'celeb' => $request->celeb
         ]);
-        return redirect()->back();
+        foreach ($request->vendorID as $vendorID) {
+            $vendor = Vendor::find($vendorID);
+            if ($vendor != null) {
+                $gallery->vendors()->attach($vendorID);
+            }
+        }
+        return redirect('/admin/gallery');
     }
 
     public function edit($galleryID)
     {
         $gallery = Gallery::find($galleryID);
-        return view();
+        $vendors = Vendor::all();
+        return view('admin.gallery-edit-form', compact('vendors', 'gallery'));
     }
 
     public function update($galleryID, Request $request)
     {
         $gallery = Gallery::find($galleryID);
+        $path = null;
         if ($gallery != null) {    
+            if ($request->hasFile('photo')) {
+                $path = $request->photo->store('gallery', 'public');
+            }
             $gallery->update([
-                ''
+                'celeb' => $request->celeb ?: $gallery->celeb,
+                'photo' => $path ?: $gallery->photo
             ]);
+            foreach ($request->vendorID as $vendorID) {
+                $vendor = Vendor::find($vendorID);
+                if ($vendor != null) {
+                    $gallery->vendors()->attach($vendorID);
+                }
+            }
         }	
-        return redirect()->back();
+        return redirect('/admin/gallery');
     }
     
     public function destroy($galleryID)
