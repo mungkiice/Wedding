@@ -47,10 +47,10 @@
                     <td style="max-width: 30px;">
                       <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/vendor/{{$vendor->id}}/edit">Edit</a>
                       <br>
-                      <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">Delete</a>
+                      <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$vendor->id}}">Delete</a>
                     </td>
                   </tr>
-                  <div class="modal modal-warning fade" id="modal-warning">
+                  <div class="modal modal-warning fade" id="modal-warning-{{$vendor->id}}">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">

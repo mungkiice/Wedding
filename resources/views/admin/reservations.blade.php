@@ -41,15 +41,15 @@
                     @endforeach
                   </ol>
                 </td>
-                <td style="text-align: right;">Rp. {{number_format($vendor->price)}}</td>
+                <td style="text-align: right;">Rp. {{number_format($reservation->price)}}</td>
                 <td>{{$reservation->status}}</td>
                 <td style="max-width: 50px;">
                   <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/reservation/{{$reservation->id}}/edit">Edit</a>
                   <br>
-                  <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning" href="">Delete</a>
+                  <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$reservation->id}}" href="">Delete</a>
                 </td>
               </tr>
-              <div class="modal modal-warning fade" id="modal-warning">
+              <div class="modal modal-warning fade" id="modal-warning-{{$reservation->id}}">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">

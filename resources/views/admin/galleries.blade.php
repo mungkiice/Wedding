@@ -44,10 +44,10 @@
                 <td style="width: 30px;">
                   <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/gallery/{{$gallery->id}}/edit">Edit</a>
                   <br>
-                  <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning">Delete</a>
+                  <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$gallery->id}}">Delete</a>
                 </td>
               </tr>
-              <div class="modal modal-warning fade" id="modal-warning">
+              <div class="modal modal-warning fade" id="modal-warning-{{$gallery->id}}">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
