@@ -9,7 +9,8 @@ class AboutUsController extends Controller
 {
 	public function showAboutUs()
 	{
-		
+        $aboutUs = AboutUs::first();
+    	return view('aboutus', compact('aboutUs'));
 	}
 
     public function adminShowAboutUs()

@@ -16,10 +16,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link link text-white display-4" href="index.html">Services</a>
+          <a class="nav-link link text-white display-4" href="/services">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link text-white display-4" href="AboutUs.html">About Us</a>
+          <a class="nav-link link text-white display-4" href="/aboutus">About Us</a>
         </li>
         @if(Auth::check())
         <li class="nav-item">
