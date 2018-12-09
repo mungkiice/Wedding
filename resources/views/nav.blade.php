@@ -23,6 +23,9 @@
         </li>
         @if(Auth::check())
         <li class="nav-item">
+          <a class="nav-link link text-white display-4" href="/reservation">Reservation, Here!</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link link text-white display-4" href="/profile">My Profile</a>
         </li>
         <li class="nav-item">

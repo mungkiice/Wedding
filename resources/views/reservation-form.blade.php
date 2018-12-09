@@ -47,10 +47,10 @@
       <div class="form-group" style="margin-left: 20%; margin-right: 10%;">
         <label class="display-7">Paket:</label>
         <div class="col-sm-10">
-          <select class="form-control" name="packet">
-            <option value="paket akad/pemberkatan">Paket Akad/Pemberkatan</option>
-            <option value="paket resepsi">Paket Resepsi</option>
-            <option value="paket akad/pemberkatan dan resepsi">Paket Akad/Pemberkatan dan Resepsi</option>
+          <select class="form-control" name="packetID">
+            @foreach($packets as $packet)
+            <option value="{{$packet->id}}">{{$packet->name}}</option>>
+            @endforeach
           </select>
         </div>
       </div>

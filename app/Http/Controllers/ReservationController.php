@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Packet;
 use App\Reservation;
 use App\Vendor;
 use Carbon\Carbon;
@@ -17,7 +18,8 @@ class ReservationController extends Controller
 
     public function create($date)
     {
-        return view('reservation-form', compact('date'));
+        $packets = Packet::all();
+        return view('reservation-form', compact('packets', 'date'));
     }
 
     public function store(Request $request)
@@ -25,10 +27,12 @@ class ReservationController extends Controller
         if ($request->date == null) {
             return redirect()->back();
         }
+        $packet = Packet::find($request->packetID);
         Reservation::create([
             'user_id' => auth()->user()->id,
+            'packet_id' => $packet->id,
+            'price' => $packet->price,
             'date' => Carbon::parse($request->date)->format('Y-m-d'),
-            'packet' => $request->packet,
         ]);
         return redirect('/vendors');
     }
@@ -46,7 +50,7 @@ class ReservationController extends Controller
             }
         }
         auth()->user()->cart->vendors()->detach();
-        return redirect('/');
+        return redirect('/profile');
     }
 
     public function adminIndex()

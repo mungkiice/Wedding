@@ -22,6 +22,15 @@ class DatabaseSeeder extends Seeder
             'email' => 'nefianamey@gmail.com',
             'username' => 'nefianamey'
         ]);
+        factory('App\Packet')->create([
+            'name' => 'Paket Akad/Pemberkatan'
+        ]);
+        factory('App\Packet')->create([
+            'name' => 'Paket Resepsi'
+        ]);
+        factory('App\Packet')->create([
+            'name' => 'Paket Akad/Pemberkatan dan Resepsi'
+        ]);
         factory('App\Gallery', 5)->create();
         factory('App\Category')->create([
             'name' => 'mc'
@@ -54,6 +63,11 @@ class DatabaseSeeder extends Seeder
         });
         
         $galleries = Gallery::all();
+        $galleries->each(function($gallery){
+            factory('App\Photo', 3)->create([
+                'gallery_id' => $gallery->id
+            ]);
+        });
         $galleries->each(function($gallery){
             $vendors = Vendor::inRandomOrder()->take(3)->get();
             $vendors->each(function($vendor) use ($gallery) {

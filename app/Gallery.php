@@ -8,4 +8,9 @@ class Gallery extends Model
     {
     	return $this->belongsToMany(Vendor::class, 'gallery_vendor');
     }
+
+    public function photos()
+    {
+    	return $this->hasMany(Photo::class);
+    }
 }

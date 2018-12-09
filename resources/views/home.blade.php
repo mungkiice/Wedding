@@ -12,8 +12,17 @@
     <link rel="stylesheet" href="{{ asset('socicon/css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('mobirise-gallery/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('mobirise/css/mbr-additional.css') }}" type="text/css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+    .popup-gallery a{
+        display:none;
+    }
+    .popup-gallery a:first-child{
+        display:block;
+    }
+</style>
 
 </head>
 <body>
@@ -50,26 +59,29 @@
                 </li>
                 @if(Auth::check())
                 <li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="/reservation">Reservation, Here!</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="/profile">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="/user/cart">My Cart</a>
-              </li>
-              @endif
-          </ul>
-          <div class="navbar-buttons mbr-section-btn">
-            @if(Auth::guest())
-            <a class="btn btn-sm btn-success display-4" href="/login">Login</a>
-            @else
-            <a class="btn btn-sm btn-success display-4" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">Logout</a>
-            <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
-            @endif
+                </li>
+                @endif
+            </ul>
+            <div class="navbar-buttons mbr-section-btn">
+                @if(Auth::guest())
+                <a class="btn btn-sm btn-success display-4" href="/login">Login</a>
+                @else
+                <a class="btn btn-sm btn-success display-4" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+                @endif
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </section>
 
 <section class="engine">
@@ -156,19 +168,25 @@
             <div class="card p-3 col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper ">
                     <div class="card-img">
-                        <div class="mbr-overlay"></div>
-                        <div class="mbr-section-btn text-center"><a href="index.html" class="btn btn-info display-4">MORE</a></div>
-                        <img src="storage/{{ $gallery->photo }}" alt="Mobirise" title="" media-simple="true">
+                        <!-- <div class="mbr-overlay"></div> -->
+                        <!-- <div class="mbr-section-btn text-center"><a href="" class="btn btn-info display-4">MORE</a></div> -->
+                        <div class="popup-gallery">
+                            @foreach($gallery->photos as $photo)
+                            <a href="/storage/{{ $photo->path }}">
+                                <img src="/storage/{{ $photo->path }}">         
+                            </a>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="card-box">
                         <h4 class="card-title mbr-fonts-style display-7">{{ $gallery->celeb }}</h4>
                         <p class="mbr-text mbr-fonts-style align-center display-7">
                             <div class="row">
-                                @foreach($gallery->vendors as $vendor)
+<!--                                 @foreach($gallery->vendors as $vendor)
                                 <span class="col-md-5">{{ $vendor->category->name }}</span>
                                 <span class="col-md-2"> : </span>
                                 <span class="col-md-5" style="padding: 0">{{ $vendor->name }}</span>
-                                @endforeach
+                                @endforeach -->
                             </div>
                         </p>
                     </div>
@@ -193,7 +211,7 @@
                 <!-- <div class="mbr-section-btn align-center py-2"><a class="btn btn-md btn-primary display-4" href="index.html">MORE</a></div> -->
 
                 <div class="icons-media-container mbr-white">
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/mc">
                                 <span class="mbr-iconfont mbri-github" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -203,7 +221,7 @@
                         MC</h5>
                     </div>
 
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/venue">
                                 <span class="mbr-iconfont mbri-home" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -213,7 +231,7 @@
                         VENUE</h5>
                     </div>
 
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/photography">
                                 <span class="mbr-iconfont mbri-camera" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -222,7 +240,7 @@
                         <h5 class="mbr-fonts-style display-5">PHOTOGRAPHY</h5>
                     </div>
 
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/catering">
                                 <span class="mbr-iconfont mbri-delivery" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -231,7 +249,7 @@
                         <h5 class="mbr-fonts-style display-5">CATERING</h5>
                     </div>
 
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/makeup">
                                 <span class="mbr-iconfont mbri-smile-face" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -240,7 +258,7 @@
                         <h5 class="mbr-fonts-style display-5">MAKEUP</h5>
                     </div>
 
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/decoration">
                                 <span class="mbr-iconfont mbri-magic-stick" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -249,7 +267,7 @@
                         <h5 class="mbr-fonts-style display-5">DECORATION</h5>
                     </div>
 
-                    <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
                             <a href="/vendors/sound system">
                                 <span class="mbr-iconfont mbri-speed" style="color: rgb(35, 35, 35);" media-simple="true"></span>
@@ -420,6 +438,7 @@
 
 
     <script src="{{ asset('web/assets/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('popper/popper.min.js') }}"></script>
     <script src="{{ asset('tether/tether.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
@@ -437,8 +456,27 @@
     <script src="{{ asset('mobirise-gallery/player.min.js') }}"></script>
     <script src="{{ asset('mobirise-gallery/script.js') }}"></script>
 
-
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbri-down mbr-iconfont"></i></a></div>
     <input name="animation" type="hidden">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.popup-gallery').each(function(){
+                $(this).magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    tLoading: 'Loading image #%curr%...',
+                    mainClass: 'mfp-img-mobile',
+                    gallery: {
+                        enabled: true,
+                        navigateByImgClick: true,
+                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                }
+            });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -25,7 +25,8 @@ class UserController extends Controller
     {
         $cart = $this->createOrGetCart();
         $subtotal = $cart->vendors()->sum('price');
-    	return view('cart', compact('cart', 'subtotal'));
+        $reservation = auth()->user()->reservations()->latest()->first();
+    	return view('cart', compact('cart', 'subtotal', 'reservation'));
     }
 
     public function addToCart($vendorID)

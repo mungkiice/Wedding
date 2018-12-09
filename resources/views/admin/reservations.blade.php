@@ -33,7 +33,7 @@
                <tr>
                 <td>{{$reservation->user->name}}</td>
                 <td>{{date('D, d M Y', strtotime($reservation->date))}}</td>
-                <td>{{$reservation->packet}}</td>
+                <td>{{$reservation->packet->name}}</td>
                 <td>
                   <ol>
                     @foreach($reservation->vendors as $vendor)

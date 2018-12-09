@@ -17,11 +17,7 @@ class CreateReservationsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->date('date');
-            $table->enum('packet', [
-                'paket akad/pemberkatan',
-                'paket resepsi',
-                'paket akad/pemberkatan dan resepsi'
-            ]);
+            $table->integer('packet_id')->unsigned();
             $table->enum('status', [
                 'canceled',
                 'planning',
@@ -33,6 +29,7 @@ class CreateReservationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('packet_id')->references('id')->on('packets');
         });
     }
 

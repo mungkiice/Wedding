@@ -103,8 +103,8 @@
 		<div class="card-warp">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4">
-						<div class="shipping-info">
+					<div class="col-lg-3">
+						<!-- <div class="shipping-info">
 							<h4>Shipping method</h4>
 							<p>Select the one you want</p>
 							<div class="shipping-chooes">
@@ -127,21 +127,22 @@
 								<input type="text">
 								<button class="site-btn">Apply</button>
 							</div>
-						</div>
+						</div> -->
 					</div>
-					<div class="offset-lg-2 col-lg-6">
+					<div class="col-lg-6">
 						<div class="cart-total-details">
 							<h4>Cart total</h4>
 							<p>Final Info</p>
 							<ul class="cart-total-card">
 								<li>Subtotal<span>Rp. {{number_format($subtotal)}}</span></li>
-								<li>Shipping<span>Free</span></li>
-								<li class="total">Total<span>Rp. {{number_format($subtotal)}}</span></li>
+								<li>{{$reservation->packet->name}}<span>Rp. {{number_format($reservation->packet->price)}}</span></li>
+								<li class="total">Total<span>Rp. {{number_format($reservation->packet->price + $subtotal)}}</span></li>
 							</ul>
 							<a class="site-btn btn-full" onclick="event.preventDefault();
 							postVendors();">Proceed to checkout</a>
 						</div>
 					</div>
+					<div class="col-lg-3"></div>
 				</div>
 			</div>
 		</div>
@@ -172,7 +173,7 @@
 					'_token': csrf
 				},
 				success: function(response) {
-					window.location = '/'
+					window.location = '/profile'
 				}       
 			})
 		}
