@@ -20,6 +20,7 @@ Route::post('/logout', 'LoginController@logout')->middleware('auth');
 Route::get('/register', 'RegisterController@showRegistrationForm')->name('register')->middleware('guest');
 Route::post('/register', 'RegisterController@register');
 Route::get('/profile', 'UserController@showProfile')->middleware('auth');
+Route::post('/profile/edit', 'UserController@update')->middleware('auth');
 Route::get('/user/cart', 'UserController@showCart')->middleware('auth');
 Route::get('/user/cart/clear', 'UserController@clearCart')->middleware('auth');
 Route::get('/user/{vendorID}/cart', 'UserController@addToCart')->middleware('auth');

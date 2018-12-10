@@ -44,4 +44,18 @@ class UserController extends Controller
         $this->createOrGetCart()->vendors()->detach();
         return redirect()->back();
     }
+
+    public function update(Request $request)
+    {
+        $path = null;
+        if ($request->hasFile('photo')) {
+            $path = $request->photo->store('user', 'public');
+        }
+
+        auth()->user()->update([
+            'photo' => $path ?: auth()->user()->photo
+        ]);
+
+        return redirect()->back();
+    }
 }

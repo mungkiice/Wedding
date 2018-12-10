@@ -60,12 +60,18 @@ class GalleryController extends Controller
             }
             $gallery->update([
                 'celeb' => $request->celeb ?: $gallery->celeb,
-                'photo' => $path ?: $gallery->photo
             ]);
-            foreach ($request->vendorID as $vendorID) {
-                $vendor = Vendor::find($vendorID);
-                if ($vendor != null) {
-                    $gallery->vendors()->attach($vendorID);
+            if ($path != null) {
+                $gallery->photos()->create([
+                    'path' => $path
+                ]);
+            }
+            if ($request->vendorID) {
+                foreach ($request->vendorID as $vendorID) {
+                    $vendor = Vendor::find($vendorID);
+                    if ($vendor != null) {
+                        $gallery->vendors()->attach($vendorID);
+                    }
                 }
             }
         }	

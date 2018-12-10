@@ -124,14 +124,15 @@
 <body>
     @include('nav')
     <div class="container emp-profile">
-        <form method="post">
+        <form method="post" action="/profile/edit" enctype="multipart/form-data">
+            {{csrf_field()}}
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
                         <img src="/storage/{{auth()->user()->photo}}">
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
-                            <input type="file" name="file"/>
+                            <input type="file" name="photo"/>
                         </div>
                     </div>
                 </div>
