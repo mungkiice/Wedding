@@ -29,8 +29,10 @@ class GalleryController extends Controller
     public function store(Request $request)
     {   
     	$gallery = Gallery::create([
-            'photo' => $request->photo->store('gallery', 'public'),
             'celeb' => $request->celeb
+        ]);
+        $gallery->photos()->create([
+            'path' => $request->photo->store('gallery', 'public'),
         ]);
         foreach ($request->vendorID as $vendorID) {
             $vendor = Vendor::find($vendorID);

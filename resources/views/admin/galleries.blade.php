@@ -39,7 +39,7 @@
                   </ol>
                 </td>
                 <td style="max-width: 50px">
-                  <img style="width: 100%" src="/storage/{{$gallery->photo}}">
+                  <img style="width: 100%" src="/storage/{{optional($gallery->photos->first())->path}}">
                 </td>
                 <td style="width: 30px;">
                   <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/gallery/{{$gallery->id}}/edit">Edit</a>
@@ -49,7 +49,7 @@
               </tr>
               <div class="modal modal-warning fade" id="modal-warning-{{$gallery->id}}">
                 <div class="modal-dialog">
-                  <div class="modal-content">
+                  <div class="modal-content"> 
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
