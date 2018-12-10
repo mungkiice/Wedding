@@ -26,6 +26,7 @@ class RegisterController extends Controller
 			'email' => $request->email,
 			'password' => bcrypt($request->password),
 			'username' => $request->username,
+			'photo' => $request->photo->store('user', 'public'),
 		]);
 		//kembali ke halaman home
 		Auth::guard()->login($user);

@@ -35,7 +35,7 @@
                         <strong>  New User ? Register Yourself </strong>
                     </div>
                     <div class="panel-body">
-                        <form method="POST" action="/register">
+                        <form method="POST" action="/register"  enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <br/>
                             <div class="form-group input-group">
@@ -49,6 +49,10 @@
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
                                 <input type="email" class="form-control" placeholder="Your Email" name="email" required />
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-image"  ></i></span>
+                                <input id="file" type="file" class="form-control" placeholder="Input File Image" name="photo" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
