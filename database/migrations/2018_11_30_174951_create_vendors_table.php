@@ -17,7 +17,7 @@ class CreateVendorsTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->string('name');
-            $table->text('information');
+            $table->text('description');
             $table->string('photo');
             $table->decimal('price', 13, 0);
             $table->timestamps();

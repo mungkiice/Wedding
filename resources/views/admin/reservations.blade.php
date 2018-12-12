@@ -1,6 +1,6 @@
 @extends('admin.app')
-@section('page', 'Reservation')
-@section('section', 'Data Tables')
+@section('page', 'Reservasi')
+@section('section', 'Tabel Data')
 @section('content')
 
 <!-- Main content -->
@@ -9,7 +9,7 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Data Table</h3>
+          <h3 class="box-title">Tabel Data</h3>
         </div>
 
 
@@ -19,13 +19,13 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Packet</th>
-                  <th>Vendors</th>
-                  <th>Price</th>
+                  <th>Member</th>
+                  <th>Tanggal Acara</th>
+                  <th>Paket</th>
+                  <th>Vendor</th>
+                  <th>Harga</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -33,7 +33,13 @@
                <tr>
                 <td>{{$reservation->user->name}}</td>
                 <td>{{date('D, d M Y', strtotime($reservation->date))}}</td>
-                <td>{{$reservation->packet->name}}</td>
+                <td>
+                  <ul>
+                    @foreach($reservation->packets as $packet)
+                    <li>{{$packet->name}}</li>
+                    @endforeach
+                  </ul>
+                </td>
                 <td>
                   <ol>
                     @foreach($reservation->vendors as $vendor)
@@ -44,9 +50,9 @@
                 <td style="text-align: right;">Rp. {{number_format($reservation->price)}}</td>
                 <td>{{$reservation->status}}</td>
                 <td style="max-width: 50px;">
-                  <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/reservation/{{$reservation->id}}/edit">Edit</a>
+                  <a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/reservation/{{$reservation->id}}/edit">Ubah</a>
                   <br>
-                  <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$reservation->id}}" href="">Delete</a>
+                  <a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$reservation->id}}" href="">Hapus</a>
                 </td>
               </tr>
               <div class="modal modal-warning fade" id="modal-warning-{{$reservation->id}}">
@@ -55,7 +61,7 @@
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Delete Confirmation</h4>
+                        <h4 class="modal-title">Konfirmasi Penghapusan</h4>
                       </div>
                       <div class="modal-body">
                         <p>Apakah anda yakin ingin menghapus Reservasi Atas Nama "{{$reservation->user->name}}"?</p>

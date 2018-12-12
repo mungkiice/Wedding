@@ -2,11 +2,11 @@
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+          <img src="/storage/{{auth()->user()->photo}}" class="img-circle" style="width: 50px; height: 50px; object-fit: cover;" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ auth()->user()->name }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> Aktif</a>
         </div>
       </div>
 <!--       <form action="#" method="get" class="sidebar-form">
@@ -57,7 +57,7 @@
         <li>
           <a href="/admin/gallery">
             <i class="fa fa-image"></i>
-            <span>Gallery</span>
+            <span>Galeri</span>
           </a>
         </li>
         <!-- <li>
@@ -102,7 +102,7 @@
         </li> -->
         <li>
           <a href="/admin/aboutus">
-            <i class="fa fa-edit"></i> <span>About US</span>
+            <i class="fa fa-edit"></i> <span>Tentang Kami</span>
 <!--             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span> -->

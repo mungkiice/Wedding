@@ -19,8 +19,8 @@
     <div class="row text-center ">
       <div class="col-md-12">
         <br /><br />
-        <h2> Login</h2>
-        <h5>( Login yourself to get access )</h5>
+        <h2> Autentikasi</h2>
+        <h5>( Masuk untuk mendapatkan akses)</h5>
         <br />
       </div>
     </div>
@@ -28,7 +28,7 @@
      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
        <div class="panel panel-default">
         <div class="panel-heading">
-         <strong>   Enter Details To Login </strong>
+         <strong>   Silahkan isi data untuk autentikasi </strong>
        </div>
        <div class="panel-body">
         <form role="form" method="POST" action="/login">
@@ -36,23 +36,23 @@
           <br />
           <div class="form-group input-group">
            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-           <input type="text" class="form-control" placeholder="Your Username " name="username" />
+           <input type="text" class="form-control" placeholder="username anda " name="username" />
          </div>
          <div class="form-group input-group">
            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-           <input type="password" class="form-control"  placeholder="Your Password" name="password" />
+           <input type="password" class="form-control"  placeholder="password anda" name="password" />
          </div>
-         <div class="form-group">
+<!--          <div class="form-group">
            <label class="checkbox-inline">
              <input type="checkbox" /> Remember me
            </label>
            <span class="pull-right">
             <a href="#" >Forget password ? </a>
           </span>
-        </div>
-        <button type="submit" class="btn btn-primary">Login Now</button>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Masuk</button>
         <hr />
-        Not register ? <a href="/register" >click here </a>
+        Belum Punya Akun ? <a href="/register" >Daftar disini </a>
       </form>
     </div>
 

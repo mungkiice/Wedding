@@ -14,8 +14,8 @@ class Reservation extends Model
 		return $this->belongsToMany(Vendor::class, 'reservation_vendor');
 	}
 
-	public function packet()
+	public function packets()
 	{
-		return $this->belongsTo(Packet::class);
+		return $this->belongsToMany(Packet::class, 'reservation_packet');
 	}
 }

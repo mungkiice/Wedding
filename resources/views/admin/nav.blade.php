@@ -210,13 +210,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+              <img src="/storage/{{auth()->user()->photo}}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{ auth()->user()->username }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                <img src="/storage/{{auth()->user()->photo}}" class="img-circle" alt="User Image">
 
 <!--                 <p>
                   Sidorabi Admin - Web Developer
@@ -240,11 +240,11 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/profile" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/profile" class="btn btn-default btn-flat">Profil Saya</a>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">Sign out</a>
+                  document.getElementById('logout-form').submit();">Keluar</a>
                   <form id="logout-form" action="/logout" method="POST" style="display: none;">
                     {{ csrf_field() }}
                   </form>

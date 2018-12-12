@@ -33,6 +33,7 @@
 <!-- Google Font -->
 <link rel="stylesheet"
 href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+@yield('custom-css')
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -276,5 +277,6 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
     $('.textarea').wysihtml5()
   })
 </script>
+@yield('custom-js')
 </body>
 </html>

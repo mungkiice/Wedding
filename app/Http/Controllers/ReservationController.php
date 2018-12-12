@@ -27,13 +27,19 @@ class ReservationController extends Controller
         if ($request->date == null) {
             return redirect()->back();
         }
-        $packet = Packet::find($request->packetID);
-        Reservation::create([
+        $reservation = Reservation::create([
             'user_id' => auth()->user()->id,
-            'packet_id' => $packet->id,
-            'price' => $packet->price,
             'date' => Carbon::parse($request->date)->format('Y-m-d'),
         ]);
+        foreach ($request->packetID as $packetID) {
+            $packet = Packet::find($packetID);
+            if ($packet != null) {
+                $reservation->packets()->attach($packetID); 
+                $reservation->update([
+                    'price' => $reservation->price + $packet->price,
+                ]);
+            }
+        }
         return redirect('/vendors');
     }
 
@@ -78,8 +84,8 @@ class ReservationController extends Controller
 
     public function destroy($reservationID)
     {
-       $reservation = Reservation::find($reservationID);
-       if ($reservation != null) {
+     $reservation = Reservation::find($reservationID);
+     if ($reservation != null) {
         $reservation->delete();
     }
     return redirect()->back();   

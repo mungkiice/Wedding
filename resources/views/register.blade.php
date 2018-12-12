@@ -21,9 +21,9 @@
             <div class="col-md-12">
                 <br/>
                 <br/>
-                <h2>Register</h2>
+                <h2>Autentikasi</h2>
 
-                <h5>( Register yourself to get access )</h5>
+                <h5>( Daftar untuk mendapatkan akses)</h5>
                 <br/>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong>  New User ? Register Yourself </strong>
+                        <strong>  Pengguna Baru ? Segera Daftarkan Dirimu </strong>
                     </div>
                     <div class="panel-body">
                         <form method="POST" action="/register"  enctype="multipart/form-data">
@@ -40,15 +40,15 @@
                             <br/>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-                                <input type="text" class="form-control" placeholder="Your Name" name="name" required />
+                                <input type="text" class="form-control" placeholder="nama anda" name="name" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                <input type="text" class="form-control" placeholder="Desired Username" name="username" required />
+                                <input type="text" class="form-control" placeholder="username anda" name="username" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" class="form-control" placeholder="Your Email" name="email" required />
+                                <input type="email" class="form-control" placeholder="email anda" name="email" required />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-image"  ></i></span>
@@ -56,16 +56,16 @@
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input id="password" type="password" class="form-control" placeholder="Enter Password" name="password" required />
+                                <input id="password" type="password" class="form-control" placeholder="password anda" name="password" required />
                             </div>
                             <span id="message"></span>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                <input id="confirm_password" type="password" class="form-control" placeholder="Retype Password" name="password_confirmation" required />
+                                <input id="confirm_password" type="password" class="form-control" placeholder="ketik ulang password" name="password_confirmation" required />
                             </div>
-                            <button type="submit" class="btn btn-success">Register Me</button>
+                            <button type="submit" class="btn btn-success">Daftar</button>
                             <hr />
-                            Already Registered ?  <a href="/login" >Login here</a>
+                            Sudah Punya Akun ?  <a href="/login" >Masuk disini</a>
                         </form>
                     </div>
 

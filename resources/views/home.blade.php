@@ -44,37 +44,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                 <li class="nav-item dropdown open">
-                    <a class="nav-link link dropdown-toggle text-black display-4" href="index.html" data-toggle="dropdown-submenu" aria-expanded="true">Home</a>
+                    <a class="nav-link link dropdown-toggle text-black display-4" href="index.html" data-toggle="dropdown-submenu" aria-expanded="true">Beranda</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item text-black display-4" href="/#features18-5">Photo Gallery</a>
+                        <a class="dropdown-item text-black display-4" href="/#features18-5">Galeri</a>
                         <a class="dropdown-item text-black display-4" href="/#header12-6">Vendor</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="/services">
-                    Services</a>
+                    Layanan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="/aboutus">About Us</a>
+                    <a class="nav-link link text-black display-4" href="/aboutus">Tentang Kami</a>
                 </li>
                 @if(Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="/reservation">Reservation, Here!</a>
+                    <a class="nav-link link text-black display-4" href="/reservation">Reservasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="/profile">My Profile</a>
+                    <a class="nav-link link text-black display-4" href="/profile">Profil Saya</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="/user/cart">My Cart</a>
+                    <a class="nav-link link text-black display-4" href="/user/cart">List Vendor Saya</a>
                 </li>
                 @endif
             </ul>
             <div class="navbar-buttons mbr-section-btn">
                 @if(Auth::guest())
-                <a class="btn btn-sm btn-success display-4" href="/login">Login</a>
+                <a class="btn btn-sm btn-success display-4" href="/login">Masuk</a>
                 @else
                 <a class="btn btn-sm btn-success display-4" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">Logout</a>
+                document.getElementById('logout-form').submit();">Keluar</a>
                 <form id="logout-form" action="/logout" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
@@ -88,9 +88,6 @@
   <a href="">bootstrap slideshow</a>
 </section>
 <section class="carousel slide cid-r9tZV4LH6D" data-interval="false" id="slider1-1" data-rv-view="397">
-
-
-
     <div class="full-screen">
         <div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000"><ol class="carousel-indicators"><li data-app-prevent-settings="" data-target="#slider1-1" class=" active" data-slide-to="0"></li><li data-app-prevent-settings="" data-target="#slider1-1" data-slide-to="1"></li><li data-app-prevent-settings="" data-target="#slider1-1" data-slide-to="2"></li></ol>
             <div class="carousel-inner" role="listbox">
@@ -101,11 +98,11 @@
                         <div class="carousel-caption justify-content-center">
                             <div class="col-10 align-center">
                                 <h2 class="mbr-fonts-style display-1">SIDORABI WEDDING ORGANIZER</h2>
-                                <p class="lead mbr-text mbr-fonts-style display-5">It's Your Wedding Event Partner</p>
-                                <div class="mbr-section-btn" buttons="0">
-                                    <a class="btn  display-4 btn-success" href="/reservation">RESERVATION, HERE ! </a>
-                                    <!-- <a class="btn  btn-white-outline display-4" href="index.html" target="_blank">EVENT CALENDAR</a> -->
-                                </div>
+                                <p class="lead mbr-text mbr-fonts-style display-5">Partner Acara Pernikahan Anda</p>
+                                <!-- <div class="mbr-section-btn" buttons="0">
+                                    <a class="btn  display-4 btn-success" href="/reservation">RESERVASI, DISINI! </a>
+                                    <a class="btn  btn-white-outline display-4" href="index.html" target="_blank">EVENT CALENDAR</a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -118,8 +115,8 @@
                         <img src="{{ asset('images/05-klk-photography-ritz-carlton-2016-1400x935.jpg') }}">
                         <div class="carousel-caption justify-content-center">
                             <div class="col-10 align-left">
-                                <h2 class="mbr-fonts-style display-1">OUR ACTIVITIES</h2>
-                                <p class="lead mbr-text mbr-fonts-style display-5">Creating an extraordinary wedding is our standard of service. Innovative design, entertainment, decoration and event-themed content tailored to the wishes or dreams of our clients that will be presented in detail and professional so that it will be a moment that will not be forgotten all time.</p>
+                                <h2 class="mbr-fonts-style display-1">AKTIFITAS KAMI</h2>
+                                <p class="lead mbr-text mbr-fonts-style display-5">Menciptakan pernikahan yang luar biasa adalah standar pelayanan kami. Desain inovatif, hiburan, dekorasi dan acara bertema konten yang disesuaikan dengan keinginan atau impian klien kami yang akan disajikan secara detail dan profesional sehingga akan menjadi momen yang tidak akan terlupakan sepanjang waktu.</p>
                             </div>
                         </div>
                     </div>
@@ -132,8 +129,8 @@
                         <img src="{{ asset('images/131879-1322x799.jpg') }}">
                         <div class="carousel-caption justify-content-center">
                             <div class="col-10 align-right">
-                                <h2 class="mbr-fonts-style display-1">OUR TEAM</h2>
-                                <p class="lead mbr-text mbr-fonts-style display-5">As a wedding organizer premium in Malang, Sidorabi Wedding Organizer is a wedding organizer service company that offers a one stop shop for weddings both traditional and international wedding. With a professional and experienced team.</p>
+                                <h2 class="mbr-fonts-style display-1">TIM KAMI</h2>
+                                <p class="lead mbr-text mbr-fonts-style display-5">Sebagai wedding organizer premium di Malang, Sidorabi Wedding Organizer adalah perusahaan layanan wedding organizer yang menawarkan one stop shop untuk pernikahan baik pernikahan tradisional maupun internasional. Dengan tim yang profesional dan berpengalaman.</p>
                             </div>
                         </div>
                     </div>
@@ -142,11 +139,11 @@
         </div>
         <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-1">
             <span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">Sebelumnya</span>
         </a>
         <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-1">
             <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">Selanjutnya</span>
         </a>
     </div>
 </div>
@@ -160,9 +157,9 @@
 
     <div class="container">
         <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
-        PHOTO GALLERY</h2>
+        GALERI FOTO</h2>
         <h3 class="mbr-section-subtitle display-5 align-center mbr-fonts-style mbr-light">
-        Share Your Happiness With Us&nbsp;</h3>
+        Bagikan Kebahagiaan Anda Bersama Kami&nbsp;</h3>
         <div class="media-container-row pt-5 ">
             @foreach($galleries as $gallery)
             <div class="card p-3 col-12 col-md-6 col-lg-4">
@@ -206,7 +203,7 @@
     <div class="container  ">
         <div class="media-container">
             <div class="col-md-12 align-center">
-                <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-2">OUR VENDOR</h1>
+                <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-2">VENDOR KAMI</h1>
                 <p class="mbr-text pb-3 mbr-white mbr-fonts-style display-5"></p>
                 <!-- <div class="mbr-section-btn align-center py-2"><a class="btn btn-md btn-primary display-4" href="index.html">MORE</a></div> -->
 
@@ -223,48 +220,48 @@
 
                     <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
-                            <a href="/vendors/venue">
+                            <a href="/vendors/tempat">
                                 <span class="mbr-iconfont mbri-home" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
                         <h5 class="mbr-fonts-style display-5">
-                        VENUE</h5>
+                        TEMPAT</h5>
                     </div>
 
                     <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
-                            <a href="/vendors/photography">
+                            <a href="/vendors/fotografi">
                                 <span class="mbr-iconfont mbri-camera" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
-                        <h5 class="mbr-fonts-style display-5">PHOTOGRAPHY</h5>
+                        <h5 class="mbr-fonts-style display-5">FOTOGRAFI</h5>
                     </div>
 
                     <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
-                            <a href="/vendors/catering">
+                            <a href="/vendors/katering">
                                 <span class="mbr-iconfont mbri-delivery" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
-                        <h5 class="mbr-fonts-style display-5">CATERING</h5>
+                        <h5 class="mbr-fonts-style display-5">KATERING</h5>
                     </div>
 
                     <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
-                            <a href="/vendors/makeup">
+                            <a href="/vendors/rias wajah">
                                 <span class="mbr-iconfont mbri-smile-face" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
-                        <h5 class="mbr-fonts-style display-5">MAKEUP</h5>
+                        <h5 class="mbr-fonts-style display-5">RIAS WAJAH</h5>
                     </div>
 
                     <div class="card col-12 col-md-3 col-lg-3">
                         <div class="icon-block">
-                            <a href="/vendors/decoration">
+                            <a href="/vendors/dekorasi">
                                 <span class="mbr-iconfont mbri-magic-stick" style="color: rgb(35, 35, 35);" media-simple="true"></span>
                             </a>
                         </div>
-                        <h5 class="mbr-fonts-style display-5">DECORATION</h5>
+                        <h5 class="mbr-fonts-style display-5">DEKORASI</h5>
                     </div>
 
                     <div class="card col-12 col-md-3 col-lg-3">
@@ -372,16 +369,16 @@
         <div class="media-container-row content mbr-white">
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <p class="mbr-text">
-                    <strong>Address</strong>
+                    <strong>Alamat</strong>
                     <br>
                     <br>Jl Simpang LA Sucipto Ruko Pandanwangi Park no 2, Pandanwangi, Blimbing, Kota Malang, Jawa Timur 65113<br><br><br><strong>Contacts</strong>
                     <br>
                     <br>Email: sidorabiwedding@gmail.com
-                    <br>Phone: 081216420575<br><br></p>
+                    <br>Nomor Telepon: 081216420575<br><br></p>
                 </div>
                 <div class="col-12 col-md-3 mbr-fonts-style display-7">
                     <p class="mbr-text">
-                        <strong>Links</strong>
+                        <strong>Media Sosial</strong>
                         <br>
                         <br>instagram.com/sidorabi_weddingorganizer/<br>
                         <br><br></p>
@@ -458,7 +455,7 @@
 
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbri-down mbr-iconfont"></i></a></div>
     <input name="animation" type="hidden">
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
             $('.popup-gallery').each(function(){
                 $(this).magnificPopup({

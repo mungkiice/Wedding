@@ -57,7 +57,7 @@ Route::get('/admin/gallery/{galleryID}', 'GalleryController@show')->middleware('
 Route::put('/admin/gallery/{galleryID}', 'GalleryController@update')->middleware('admin');
 Route::delete('/admin/gallery/{galleryID}', 'GalleryController@destroy')->middleware('admin');
 Route::get('/admin/gallery/{galleryID}/edit', 'GalleryController@edit')->middleware('admin');
-
+Route::delete('/admin/photo/{photoID}', 'PhotoController@destroy')->middleware('admin');
 Route::get('/admin/services', 'ServiceController@index')->middleware('admin');
 Route::post('/admin/services', 'ServiceController@store')->middleware('admin');
 Route::get('/admin/services/{serviceID}', 'ServiceController@show')->middleware('admin');

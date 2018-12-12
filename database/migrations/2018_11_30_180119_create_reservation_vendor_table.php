@@ -16,6 +16,13 @@ class CreateReservationVendorTable extends Migration
         Schema::create('reservation_vendor', function (Blueprint $table) {
             $table->integer('reservation_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
+            $table->enum('status', [
+                'waiting',
+                'DP',
+                'accepted',
+                'pelunasan'
+            ]);
+            $table->string('payment_proof')->nullable();
 
             $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
             $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');            

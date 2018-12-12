@@ -23,7 +23,7 @@
   @include('nav')
   <div class="container">
     <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2" style="margin-top:100px">
-    FORM RESERVATION </h2>
+    FORM RESERVASI</h2>
     <form class="form-horizontal" action="/reservation" method="POST">
       {{ csrf_field() }}
 <!--       <div class="form-group" style="margin-left:20%; margin-right:10%">
@@ -47,49 +47,50 @@
       <div class="form-group" style="margin-left: 20%; margin-right: 10%;">
         <label class="display-7">Paket:</label>
         <div class="col-sm-10">
-          <select class="form-control" name="packetID">
             @foreach($packets as $packet)
-            <option value="{{$packet->id}}">{{$packet->name}}</option>>
+            <div class="form-check" style="padding-left: 50px;">
+              <input type="checkbox" class="form-check-input" name="packetID[]" value="{{$packet->id}}">
+              <label class="form-check-label">{{$packet->name}}</label>
+            </div>
             @endforeach
-          </select>
+          </div>
         </div>
-      </div>
-      <div class="form-group" style="margin-left:20%; margin-right:10%">
-        <label class="display-7">Date:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="date" value="{{date('m/d/Y', strtotime($date))}}" readonly>
+        <div class="form-group" style="margin-left:20%; margin-right:10%">
+          <label class="display-7">Tanggal Acara:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="date" value="{{date('m/d/Y', strtotime($date))}}" readonly>
+          </div>
         </div>
-      </div>
-      <div class="form-group" style="margin-left:20%; margin-right:10%">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-group" style="margin-left:20%; margin-right:10%">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Pesan</button>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
 
 
 
-  <script src="{{ asset('web/assets/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('popper/popper.min.js') }}"></script>
-  <script src="{{ asset('tether/tether.min.js') }}"></script>
-  <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('smooth-scroll/smooth-scroll.js') }}"></script>
-  <script src="{{ asset('dropdown/js/script.min.js') }}"></script>
-  <script src="{{ asset('touch-swipe/jquery.touch-swipe.min.js') }}"></script>
-  <script src="{{ asset('jquery-mb-ytplayer/jquery.mb.ytplayer.min.js') }}"></script>
-  <script src="{{ asset('jquery-mb-vimeo_player/jquery.mb.vimeo_player.js') }}"></script>
-  <script src="{{ asset('masonry/masonry.pkgd.min.js') }}"></script>
-  <script src="{{ asset('imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ asset('bootstrap-carousel-swipe/bootstrap-carousel-swipe.js') }}"></script>
-  <script src="{{ asset('viewport-checker/jquery.viewportchecker.js') }}"></script>
-  <script src="{{ asset('theme/js/script.js') }}"></script>
-  <script src="{{ asset('mobirise-slider-video/script.js') }}"></script>
-  <script src="{{ asset('mobirise-gallery/player.min.js') }}"></script>
-  <script src="{{ asset('mobirise-gallery/script.js') }}"></script>
+    <script src="{{ asset('web/assets/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('popper/popper.min.js') }}"></script>
+    <script src="{{ asset('tether/tether.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('smooth-scroll/smooth-scroll.js') }}"></script>
+    <script src="{{ asset('dropdown/js/script.min.js') }}"></script>
+    <script src="{{ asset('touch-swipe/jquery.touch-swipe.min.js') }}"></script>
+    <script src="{{ asset('jquery-mb-ytplayer/jquery.mb.ytplayer.min.js') }}"></script>
+    <script src="{{ asset('jquery-mb-vimeo_player/jquery.mb.vimeo_player.js') }}"></script>
+    <script src="{{ asset('masonry/masonry.pkgd.min.js') }}"></script>
+    <script src="{{ asset('imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('bootstrap-carousel-swipe/bootstrap-carousel-swipe.js') }}"></script>
+    <script src="{{ asset('viewport-checker/jquery.viewportchecker.js') }}"></script>
+    <script src="{{ asset('theme/js/script.js') }}"></script>
+    <script src="{{ asset('mobirise-slider-video/script.js') }}"></script>
+    <script src="{{ asset('mobirise-gallery/player.min.js') }}"></script>
+    <script src="{{ asset('mobirise-gallery/script.js') }}"></script>
 
-  <script src="{{ asset('bootstrap/js/jquery-1.12.4.js') }}"></script>
-  <script src="{{ asset('bootstrap/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/jquery-1.12.4.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/jquery-ui.js') }}"></script>
 <!--   <script>
     $( function() {
       $( "#datepicker" ).datepicker();

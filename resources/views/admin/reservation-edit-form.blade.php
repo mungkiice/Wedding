@@ -1,6 +1,6 @@
 @extends('admin.app')
-@section('page', 'Vendor')
-@section('section', 'Edit Form')
+@section('page', 'Reservasi')
+@section('section', 'Form Ubah')
 @section('content')
 
 <!-- Main content -->
@@ -11,7 +11,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Edit Form</h3>
+					<h3 class="box-title">Form Ubah</h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
@@ -24,7 +24,16 @@
 							<input type="text" class="form-control" value="{{$reservation->user->name}}" readonly>
 						</div>
 						<div class="form-group">
-							<label>Tanggal</label>
+							<label>Paket Yang Dipilih</label>
+							@foreach($reservation->packets as $packet)
+							<div class="form-check" style="padding-left: 50px;">
+								<input id="packet-{{$packet->id}}" type="checkbox" class="form-check-input" name="packetID[]" value="{{$packet->id}}" checked>
+								<label class="form-check-label" for="packet-{{$packet->id}}">{{$packet->name}}</label>
+							</div>
+							@endforeach
+						</div>
+						<div class="form-group">
+							<label>Tanggal Acara</label>
 							<input type="text" class="form-control" value="{{date('D, d M Y', strtotime($reservation->date))}}" readonly>
 						</div>
 						<div class="form-group">
@@ -34,32 +43,57 @@
 						<div class="form-group">
 							<label>Status Baru :</label>
 							<select class="form-control select2" style="width: 100%;" name="status">
-								<option value="canceled">canceled</option>
-								<option value="planning">planning</option>
-								<option value="waiting for verification">waiting for verification</option>
-								<option value="waiting for the Day">waiting for the Day</option>
-								<option value="done"></option>
+								<option value="cancel">cancel</option>
+								<option value="menunggu verifikasi">menunggu verifikasi</option>
+								<option value="menunggu hari H">menunggu hari H</option>
+								<option value="selesai">selesai</option>
 							</select>
 						</div>
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary" style="float: right;">Perbarui</button>
 					</div>
 				</form>
 			</div>
 			<!-- /.box -->
-
-		</form>
+		</div>
+		<div class="col-md-6">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Status Vendor</h3>
+				</div>
+				<!-- <div class="box-body"> -->
+					<table class="table table-bordered table-striped">
+						<thead>
+							<th>Nama</th>
+							<th>Status</th>
+							<th>Bukti Transfer</th>
+							<!-- <th>Aksi</th> -->
+						</thead>
+						<tbody>
+							@foreach($reservation->vendors()->withPivot('status', 'payment_proof')->get() as $vendor)
+							<tr>
+								<td style="max-width: 100px;">{{$vendor->name}}</td>
+								<td style="max-width: 50px;">{{$vendor->pivot->status}}</td>
+								<td style="width: : 100px;">
+									<img src="/storage/{{$vendor->pivot->payment_proof}}">
+								</td>
+<!-- 								<td style="max-width: 30px;">
+									<a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/vendor/{{$vendor->id}}/edit">Ubah</a>
+									<br>
+									<a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$vendor->id}}">Hapus</a>
+								</td> -->
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				<!-- </div> -->
+			</div>
+		</div>
+		<!-- /.box-body -->
 	</div>
-	<!-- /.box-body -->
-</div>
-<!-- /.box -->
-</div>
-<!--/.col (right) -->
-</div>
-<!-- /.row -->
 </section>
 <!-- /.content -->
 @endsection

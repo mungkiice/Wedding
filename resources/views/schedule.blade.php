@@ -52,10 +52,14 @@
 	<script src="{{ asset('mobirise-slider-video/script.js') }}"></script>
 	<script src="{{ asset('mobirise-gallery/player.min.js') }}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale-all.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#calendar').fullCalendar({
+				"locale": "id",
+				"lan":"id",
 				"header":{
 					"left":"prev,next today",
 					"center":"title",

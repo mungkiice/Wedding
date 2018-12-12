@@ -77,7 +77,7 @@ class VendorController extends Controller
                 'photo' => $path ?: $vendor->photo
             ]);
         }	
-        return redirect('/admin/vendor');
+        return redirect()->back();
     }
 
     public function destroy($vendorID)

@@ -23,32 +23,44 @@ class DatabaseSeeder extends Seeder
             'username' => 'nefianamey'
         ]);
         factory('App\Packet')->create([
-            'name' => 'Paket Akad/Pemberkatan'
+            'name' => 'Resepsi'
         ]);
         factory('App\Packet')->create([
-            'name' => 'Paket Resepsi'
+            'name' => 'Akad/Pemberkatan dan Resepsi'
         ]);
         factory('App\Packet')->create([
-            'name' => 'Paket Akad/Pemberkatan dan Resepsi'
+            'name' => 'Lamaran'
+        ]);
+        factory('App\Packet')->create([
+            'name' => 'Siraman dan Midodareni'
+        ]);
+        factory('App\Packet')->create([
+            'name' => 'Temu Pengantin'
+        ]);
+        factory('App\Packet')->create([
+            'name' => 'Penambahan Crew WO'
+        ]);
+        factory('App\Packet')->create([
+            'name' => 'Extra Day'
         ]);
         factory('App\Gallery', 5)->create();
         factory('App\Category')->create([
             'name' => 'mc'
         ]);
         factory('App\Category')->create([
-            'name' => 'venue'
+            'name' => 'tempat'
         ]);
         factory('App\Category')->create([
-            'name' => 'photography'
+            'name' => 'fotografi'
         ]);
         factory('App\Category')->create([
-            'name' => 'catering'
+            'name' => 'katering'
         ]);
         factory('App\Category')->create([
-            'name' => 'makeup'
+            'name' => 'rias wajah'
         ]);
         factory('App\Category')->create([
-            'name' => 'decoration'
+            'name' => 'dekorasi'
         ]);
         factory('App\Category')->create([
             'name' => 'sound system'

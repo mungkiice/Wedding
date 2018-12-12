@@ -17,19 +17,16 @@ class CreateReservationsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->date('date');
-            $table->integer('packet_id')->unsigned();
             $table->enum('status', [
-                'canceled',
-                'planning',
-                'waiting for verification',
-                'waiting for the Day',
-                'done'
-            ])->default('planning');
+                'cancel',
+                'menunggu verifikasi',
+                'menunggu hari H',
+                'selesai'
+            ])->default('menunggu verifikasi');
             $table->decimal('price', 13, 0)->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('packet_id')->references('id')->on('packets');
         });
     }
 

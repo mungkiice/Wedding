@@ -75,7 +75,7 @@ class GalleryController extends Controller
                 }
             }
         }	
-        return redirect('/admin/gallery');
+        return redirect()->back();
     }
     
     public function destroy($galleryID)

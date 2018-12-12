@@ -88,14 +88,14 @@
 			</ul>
 			<div class="row" style="margin-bottom: 50px;">
 				<div class="col-md-4">
-					<label for="amount">Price range:</label>
+					<label for="amount">Kisaran Harga:</label>
 					<input class="formInput" type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold; text-align: center;" value="Rp. 1,000,000 - Rp. 10,000,000" />
 					<div id="slider-range"></div>
 					<div id="slider-container"></div>
 				</div>
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
-					<input class="formInput" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari dengan nama.." style="margin-top: 30px;">
+					<input class="formInput" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama vendor.." style="margin-top: 30px;">
 				</div>
 			</div>
 			<div class="row" id="product-filter">
@@ -118,7 +118,7 @@
 						<div class="product-info">
 							<h6>{{ $vendor->name }}</h6>
 							<p>Rp. {{ number_format($vendor->price) }}</p>
-							<a href="/user/{{$vendor->id}}/cart" class="site-btn btn-line">ADD TO CART</a>
+							<a href="/user/{{$vendor->id}}/cart" class="site-btn btn-line">ADD</a>
 						</div>
 					</div>
 				</div>

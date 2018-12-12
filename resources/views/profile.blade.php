@@ -141,10 +141,6 @@
                         <h5>
                             {{ auth()->user()->name }}
                         </h5>
-                        <h6>
-                            Banker
-                        </h6>
-
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -161,17 +157,17 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="profile-work">
+<!--                     <div class="profile-work">
                         <p>Wedding Date</p>
                         <a href="">20 Januari 2018 </a><br/>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>User Id</label>
+                                    <label>Username</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $user->username }}</p>
@@ -179,7 +175,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Name</label>
+                                    <label>Nama</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $user->name }}</p>
@@ -193,9 +189,9 @@
                                     <p>{{ $user->email }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+<!--                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Phone</label>
+                                    <label>Nomor Telepon</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>123 456 7890</p>
@@ -208,7 +204,7 @@
                                 <div class="col-md-6">
                                     <p>Nefiana Mey & Kim Han Bin</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">

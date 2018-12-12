@@ -1,6 +1,6 @@
 @extends('admin.app')
-@section('page', 'Gallery')
-@section('section', 'Create Form')
+@section('page', 'Galeri')
+@section('section', 'Form Buat')
 @section('content')
 
 <!-- Main content -->
@@ -11,7 +11,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Create Form</h3>
+					<h3 class="box-title">Form Buat</h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
@@ -27,18 +27,18 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Pasangan Celeb</label>
+							<label for="exampleInputPassword1">Pasangan Artis</label>
 							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="ex. Yani & Yanto" name="celeb">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputFile">Foto Gallery</label>
+							<label for="exampleInputFile">Foto Galeri</label>
 							<input type="file" id="exampleInputFile" name="photo">
 						</div>
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary" style="float: right;">Buat</button>
 					</div>
 				</form>
 			</div>
