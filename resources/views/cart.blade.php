@@ -65,7 +65,7 @@
 					<tbody>
 						@if($cart->vendors->isEmpty())
 						<tr>
-							<td>Vendor List is Empty</td>
+							<td>Daftar Vendor Kosong</td>
 						</tr>
 						@endif
 						@foreach($cart->vendors as $vendor)
@@ -111,7 +111,7 @@
 								<div class="sc-item">
 									<input type="radio" name="sc" id="one">
 									<!-- <label for="one">Next day delivery<span>$4.99</span></label> -->
-									<label for="one">Member diwajibkan untuk membayar DP sebesar 50% diawal</label>
+									<label for="one">Member diwajibkan untuk membayar DP sebesar 50% maksimal 3 x 24 jam setelah pemesanan</label>
 								</div>
 								<!-- <div class="sc-item">
 									<input type="radio" name="sc" id="two">
@@ -135,11 +135,11 @@
 							<h4>Total Tagihan</h4>
 							<!-- <p>Final Info</p> -->
 							<ul class="cart-total-card">
-								<li>Subtotal<span>Rp. {{number_format($subtotal)}}</span></li>
+								<li>Subtotal Vendor<span>Rp. {{number_format($subtotal)}}</span></li>
 								@foreach($reservation->packets as $packet)
 								<li>{{$packet->name}}<span>Rp. {{number_format($packet->price)}}</span></li>
 								@endforeach
-								<li class="total">Total<span>Rp. {{number_format($reservation->packets()->sum('price') + $subtotal)}}</span></li>
+								<li class="total">Total<span>Rp. {{number_format(optional($reservation->packets())->sum('price') + $subtotal)}}</span></li>
 							</ul>
 							<a class="site-btn btn-full" onclick="event.preventDefault();
 							postVendors();">Proses Reservasi</a>

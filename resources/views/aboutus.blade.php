@@ -19,7 +19,7 @@
 	@include('nav')
 	<section id="main">
 		<div id="header">
-			<div class="logo"><a href="#">About US</span></a></div>
+			<div class="logo"><a href="#">Tentang Kami</span></a></div>
 			
 		</div>
 
@@ -31,7 +31,7 @@
 				</div>
 				<header class="special">
 					<h2>Sidorabi Wedding Organizer</h2>
-					<p>Our Services</p>
+					<p>Cerita Tentang Kami</p>
 				</header>
 				<div class="content">
 					{!! $aboutUs->text !!}

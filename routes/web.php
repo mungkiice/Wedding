@@ -27,7 +27,7 @@ Route::get('/user/{vendorID}/cart', 'UserController@addToCart')->middleware('aut
 
 
 Route::get('/aboutus', 'AboutUsController@showAboutUs');
-Route::get('/services', 'HomeController@services');;
+Route::get('/services', 'ServiceController@showService');;
 Route::get('/vendors/{categoryName?}', 'VendorController@index');
 
 Route::get('/reservation', 'ReservationController@index');
@@ -41,6 +41,8 @@ Route::get('/admin/reservation/{reservationID}/edit', 'ReservationController@edi
 Route::delete('/admin/reservation/{reservationID}', 'ReservationController@destroy')->middleware('admin');
 Route::get('/admin/aboutus', 'AboutUsController@adminShowAboutUs')->middleware('admin');
 Route::post('/admin/aboutus', 'AboutUsController@updateAboutUs')->middleware('admin');
+Route::get('/admin/service', 'ServiceController@adminShowService')->middleware('admin');
+Route::post('/admin/service', 'ServiceController@updateService')->middleware('admin');
 Route::get('/admin', 'HomeController@adminIndex')->middleware('admin');
 Route::get('/admin/vendor', 'VendorController@adminIndex')->middleware('admin');
 Route::post('/admin/vendor', 'VendorController@store')->middleware('admin');

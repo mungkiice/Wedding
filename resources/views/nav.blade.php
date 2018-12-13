@@ -28,9 +28,11 @@
         <li class="nav-item">
           <a class="nav-link link text-white display-4" href="/profile">Profil Saya</a>
         </li>
+        @if(Auth::user()->reservations()->where('status', 'perencanaan')->get()->isNotEmpty())
         <li class="nav-item">
           <a class="nav-link link text-white display-4" href="/user/cart">List Vendor Saya</a>
         </li>
+        @endif
         @endif
       </ul>
       <div class="navbar-buttons mbr-section-btn">

@@ -19,10 +19,11 @@ class CreateReservationsTable extends Migration
             $table->date('date');
             $table->enum('status', [
                 'cancel',
+                'perencanaan',
                 'menunggu verifikasi',
                 'menunggu hari H',
                 'selesai'
-            ])->default('menunggu verifikasi');
+            ])->default('perencanaan');
             $table->decimal('price', 13, 0)->default(0);
             $table->timestamps();
 

@@ -18,14 +18,15 @@ class UserController extends Controller
     public function showProfile()
     {
         $user = auth()->user();
-    	return view('profile', compact('user'));
+        $reservations = auth()->user()->reservations()->latest()->get();
+    	return view('profile', compact('user', 'reservations'));
     }
 
     public function showCart()
     {
         $cart = $this->createOrGetCart();
         $subtotal = $cart->vendors()->sum('price');
-        $reservation = auth()->user()->reservations()->latest()->first();
+        $reservation = auth()->user()->reservations()->latest()->where('status', 'perencanaan')->first();
     	return view('cart', compact('cart', 'subtotal', 'reservation'));
     }
 

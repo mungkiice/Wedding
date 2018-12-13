@@ -19,8 +19,7 @@
 	@include('nav')
 	<section id="main">
 		<div id="header">
-			<div class="logo"><a href="#">Services</span></a></div>
-			
+			<div class="logo"><a href="#">Layanan</span></a></div>
 		</div>
 
 		<div class="inner">
@@ -31,11 +30,10 @@
 				</div>
 				<header class="special">
 					<h2>Sidorabi Wedding Organizer</h2>
-					<p>Our Services</p>
+					<p>Layanan Yang Kami Sajikan</p>
 				</header>
 				<div class="content">
-					<p></p>
-					<p></p>
+					{!! $service->text !!}
 				</div>
 			</section>
 

@@ -12,7 +12,7 @@ class ReservationController extends Controller
 {
     public function index()
     {
-    	$reservations = Reservation::where('status', 'waiting for the Day')->get();
+    	$reservations = Reservation::where('status', 'menunggu hari H')->get();
     	return view('schedule', compact('reservations'));
     }
 
@@ -55,6 +55,9 @@ class ReservationController extends Controller
                 $reservation->vendors()->attach($vendorID);
             }
         }
+        $reservation->update([
+            'status' => 'menunggu verifikasi'
+        ]);
         auth()->user()->cart->vendors()->detach();
         return redirect('/profile');
     }
