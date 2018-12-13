@@ -37,13 +37,13 @@ class UserController extends Controller
     	if ($vendor != null) {
     		$cart->vendors()->attach($vendorID);
     	}
-    	return redirect()->back();
+    	return back();
     }
 
     public function clearCart()
     {
         $this->createOrGetCart()->vendors()->detach();
-        return redirect()->back();
+        return back();
     }
 
     public function update(Request $request)
@@ -57,6 +57,6 @@ class UserController extends Controller
             'photo' => $path ?: auth()->user()->photo
         ]);
 
-        return redirect()->back();
+        return back();
     }
 }

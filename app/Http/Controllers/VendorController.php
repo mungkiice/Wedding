@@ -77,7 +77,7 @@ class VendorController extends Controller
                 'photo' => $path ?: $vendor->photo
             ]);
         }	
-        return redirect()->back();
+        return back();
     }
 
     public function destroy($vendorID)
@@ -86,6 +86,6 @@ class VendorController extends Controller
         if ($vendor != null) {
             $vendor->delete();
         }
-        return redirect()->back();
+        return back();
     }
 }

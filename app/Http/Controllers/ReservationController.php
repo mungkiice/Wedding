@@ -25,7 +25,7 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         if ($request->date == null) {
-            return redirect()->back();
+            return back();
         }
         $reservation = Reservation::create([
             'user_id' => auth()->user()->id,
@@ -87,10 +87,35 @@ class ReservationController extends Controller
 
     public function destroy($reservationID)
     {
-     $reservation = Reservation::find($reservationID);
-     if ($reservation != null) {
-        $reservation->delete();
+        $reservation = Reservation::find($reservationID);
+        if ($reservation != null) {
+            $reservation->delete();
+        }
+        return back();   
     }
-    return redirect()->back();   
+
+    public function uploadVendorFile($reservationID, $vendorID, Request $request)
+    {
+        $reservation = Reservation::find($reservationID);
+        if ($reservation != null && $request->hasFile('photo')) {
+            $vendor = $reservation->vendors()->where('id', $vendorID)->withPivot('status')->first();   
+            if ($vendor != null) {
+                switch ($vendor->pivot->status) {
+                    case 'waiting':
+                    $vendor->pivot->status = 'DP';
+                    break;
+                    case 'DP':
+                    $vendor->pivot->status = 'accepted';
+                    break;
+                    case 'accepted':
+                    $vendor->pivot->status = 'pelunasan';
+                    break;
+                }
+                $vendor->pivot->payment_proof = $request->photo->store('payment', 'public');
+                $vendor->pivot->save();
+            }
+        }
+        return back();
+    }
 }
-}
+

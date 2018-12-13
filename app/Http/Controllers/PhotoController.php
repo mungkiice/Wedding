@@ -13,6 +13,6 @@ class PhotoController extends Controller
         if ($photo != null) {
             $photo->delete();
         }
-        return redirect()->back();
+        return back();
     }
 }

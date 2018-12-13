@@ -25,6 +25,6 @@ class ServiceController extends Controller
 		$service->update([
 			'text' => $request->text
 		]);
-		return redirect()->back();
+		return back();
 	}
 }

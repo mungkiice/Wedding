@@ -17,10 +17,9 @@ class LoginController extends Controller
             if(Auth::user()->is_admin){
                 return redirect('/admin');
             }
-            return redirect('/home')->with('flash', 'Anda Telah Login');
+            return redirect('/home');
         }else{
-            // Session::flash('message', "Email dan Password tidak benar");
-            return back()->with('flash', 'Anda Telah Login');
+            return back();
         }
     }
     public function logout(Request $request) {

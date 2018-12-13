@@ -70,30 +70,47 @@
 							<th>Nama</th>
 							<th>Status</th>
 							<th>Bukti Transfer</th>
-							<!-- <th>Aksi</th> -->
+							<th>Aksi</th>
 						</thead>
 						<tbody>
 							@foreach($reservation->vendors()->withPivot('status', 'payment_proof')->get() as $vendor)
 							<tr>
-								<td style="max-width: 100px;">{{$vendor->name}}</td>
-								<td style="max-width: 50px;">{{$vendor->pivot->status}}</td>
-								<td style="width: : 100px;">
-									<img src="/storage/{{$vendor->pivot->payment_proof}}">
+								<td>{{$vendor->name}}</td>
+								<td>{{$vendor->pivot->status}}</td>
+								<td>
+									<img style="max-width: 150px;" src="/storage/{{$vendor->pivot->payment_proof}}">
 								</td>
-<!-- 								<td style="max-width: 30px;">
-									<a style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" href="/admin/vendor/{{$vendor->id}}/edit">Ubah</a>
-									<br>
-									<a style="width: 100%" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$vendor->id}}">Hapus</a>
-								</td> -->
+								<td style="width: 30px;">
+									<label for="file-upload-{{$vendor->id}}" class="btn btn-success">
+										Upload
+									</label>
+									<form method="POST" action="/admin/reservation/{{$reservation->id}}/upload/{{$vendor->id}}" enctype="multipart/form-data" style="display: none">
+										{{csrf_field()}}
+										<input class="upload-bukti" id="file-upload-{{$vendor->id}}" style="display: none" type="file" name="photo"/>
+									</form>
+									<!-- <a style="margin-top: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#modal-warning-{{$vendor->id}}">Update</a> -->
+								</td>
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
-				<!-- </div> -->
+					<!-- </div> -->
+				</div>
 			</div>
+			<!-- /.box-body -->
 		</div>
-		<!-- /.box-body -->
-	</div>
-</section>
-<!-- /.content -->
-@endsection
+	</section>
+	<!-- /.content -->
+	@endsection
+	@section('custom-js')
+	<script>
+		$("#file-upload").onchange = function() {
+			$("#form-").submit();
+		};
+		$('.upload-bukti').each(function(){
+			this.onchange = function(){
+				$(this).parent('form').submit();
+			};
+		});
+	</script>
+	@endsection

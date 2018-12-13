@@ -75,7 +75,7 @@ class GalleryController extends Controller
                 }
             }
         }	
-        return redirect()->back();
+        return back();
     }
     
     public function destroy($galleryID)
@@ -84,6 +84,6 @@ class GalleryController extends Controller
         if ($gallery != null) {
             $gallery->delete();
         }
-        return redirect()->back();
+        return back();
     }
 }

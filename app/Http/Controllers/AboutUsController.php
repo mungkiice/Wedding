@@ -25,6 +25,6 @@ class AboutUsController extends Controller
     	$aboutUs->update([
     		'text' => $request->text
     	]);
-    	return redirect()->back();
+    	return back();
     }
 }

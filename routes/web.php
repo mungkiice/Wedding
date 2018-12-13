@@ -11,58 +11,65 @@
 |
 */
 
+//URL Home Page
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/login', 'LoginController@showLoginForm')->name('login')->middleware('guest');
+//Autentikasi
+Route::get('/login', 'LoginController@showLoginForm')->middleware('guest');
 Route::post('/login', 'LoginController@login')->middleware('guest');
 Route::post('/logout', 'LoginController@logout')->middleware('auth');
-Route::get('/register', 'RegisterController@showRegistrationForm')->name('register')->middleware('guest');
+Route::get('/register', 'RegisterController@showRegistrationForm')->middleware('guest');
 Route::post('/register', 'RegisterController@register');
+
+//Profile page dan edit photo profil
 Route::get('/profile', 'UserController@showProfile')->middleware('auth');
 Route::post('/profile/edit', 'UserController@update')->middleware('auth');
+
 Route::get('/user/cart', 'UserController@showCart')->middleware('auth');
 Route::get('/user/cart/clear', 'UserController@clearCart')->middleware('auth');
 Route::get('/user/{vendorID}/cart', 'UserController@addToCart')->middleware('auth');
 
-
 Route::get('/aboutus', 'AboutUsController@showAboutUs');
-Route::get('/services', 'ServiceController@showService');;
-Route::get('/vendors/{categoryName?}', 'VendorController@index');
+Route::get('/services', 'ServiceController@showService');
+
 
 Route::get('/reservation', 'ReservationController@index');
+Route::get('/vendors/{categoryName?}', 'VendorController@index');
 Route::get('/reservation/create/{date}', 'ReservationController@create');
 Route::post('/reservation', 'ReservationController@store')->middleware('auth');
 Route::post('/reservation/addVendor', 'ReservationController@addVendors')->middleware('auth');
 
-Route::get('/admin/reservation', 'ReservationController@adminIndex')->middleware('admin');
-Route::put('/admin/reservation/{reservationID}', 'ReservationController@update')->middleware('admin');
-Route::get('/admin/reservation/{reservationID}/edit', 'ReservationController@edit')->middleware('admin');
-Route::delete('/admin/reservation/{reservationID}', 'ReservationController@destroy')->middleware('admin');
-Route::get('/admin/aboutus', 'AboutUsController@adminShowAboutUs')->middleware('admin');
-Route::post('/admin/aboutus', 'AboutUsController@updateAboutUs')->middleware('admin');
-Route::get('/admin/service', 'ServiceController@adminShowService')->middleware('admin');
-Route::post('/admin/service', 'ServiceController@updateService')->middleware('admin');
-Route::get('/admin', 'HomeController@adminIndex')->middleware('admin');
-Route::get('/admin/vendor', 'VendorController@adminIndex')->middleware('admin');
-Route::post('/admin/vendor', 'VendorController@store')->middleware('admin');
-Route::get('/admin/vendor/create', 'VendorController@create')->middleware('admin');
-Route::get('/admin/vendor/{vendorID}', 'VendorController@show')->middleware('admin');
-Route::put('/admin/vendor/{vendorID}', 'VendorController@update')->middleware('admin');
-Route::delete('/admin/vendor/{vendorID}', 'VendorController@destroy')->middleware('admin');
-Route::get('/admin/vendor/{vendorID}/edit', 'VendorController@edit')->middleware('admin');
+//grup URL untuk admin dengan middleware admin
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
+	Route::get('/', 'HomeController@adminIndex');
 
-Route::get('/admin/gallery', 'GalleryController@index')->middleware('admin');
-Route::post('/admin/gallery', 'GalleryController@store')->middleware('admin');
-Route::get('/admin/gallery/create', 'GalleryController@create')->middleware('admin');
-Route::get('/admin/gallery/{galleryID}', 'GalleryController@show')->middleware('admin');
-Route::put('/admin/gallery/{galleryID}', 'GalleryController@update')->middleware('admin');
-Route::delete('/admin/gallery/{galleryID}', 'GalleryController@destroy')->middleware('admin');
-Route::get('/admin/gallery/{galleryID}/edit', 'GalleryController@edit')->middleware('admin');
-Route::delete('/admin/photo/{photoID}', 'PhotoController@destroy')->middleware('admin');
-Route::get('/admin/services', 'ServiceController@index')->middleware('admin');
-Route::post('/admin/services', 'ServiceController@store')->middleware('admin');
-Route::get('/admin/services/{serviceID}', 'ServiceController@show')->middleware('admin');
-Route::put('/admin/services/{serviceID}', 'ServiceController@update')->middleware('admin');
-Route::delete('/admin/services/{serviceID}', 'ServiceController@destroy')->middleware('admin');
-Route::get('/admin/services/{serviceID}/edit', 'ServiceController@edit')->middleware('admin');
+	Route::get('/reservation', 'ReservationController@adminIndex');
+	Route::put('/reservation/{reservationID}', 'ReservationController@update');
+	Route::get('/reservation/{reservationID}/edit', 'ReservationController@edit');
+	Route::delete('/reservation/{reservationID}', 'ReservationController@destroy');
+	Route::post('/reservation/{reservationID}/upload/{vendorID}', 'ReservationController@uploadVendorFile');
+	
+	Route::get('/aboutus', 'AboutUsController@adminShowAboutUs');
+	Route::post('/aboutus', 'AboutUsController@updateAboutUs');
+	
+	Route::get('/service', 'ServiceController@adminShowService');
+	Route::post('/service', 'ServiceController@updateService');
+	
+	Route::get('/vendor', 'VendorController@adminIndex');
+	Route::post('/vendor', 'VendorController@store');
+	Route::get('/vendor/create', 'VendorController@create');
+	Route::get('/vendor/{vendorID}', 'VendorController@show');
+	Route::put('/vendor/{vendorID}', 'VendorController@update');
+	Route::delete('/vendor/{vendorID}', 'VendorController@destroy');
+	Route::get('/vendor/{vendorID}/edit', 'VendorController@edit');
+
+	Route::get('/gallery', 'GalleryController@index');
+	Route::post('/gallery', 'GalleryController@store');
+	Route::get('/gallery/create', 'GalleryController@create');
+	Route::get('/gallery/{galleryID}', 'GalleryController@show');
+	Route::put('/gallery/{galleryID}', 'GalleryController@update');
+	Route::delete('/gallery/{galleryID}', 'GalleryController@destroy');
+	Route::get('/gallery/{galleryID}/edit', 'GalleryController@edit');
+	Route::delete('/photo/{photoID}', 'PhotoController@destroy');
+});

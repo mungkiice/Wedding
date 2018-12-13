@@ -10,6 +10,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
+    //buat ignore rememberToken bawaan framework laravel
 	public function getRememberTokenName(){
 		return null;
 	}
