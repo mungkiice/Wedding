@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <style type="text/css">
-   p{
-       font-family: serif;
-       line-height: 1.75em;
-       font-size: 18px;
-   }
-   i{
-       font-family: sans;
-       color: orange;
-   }
-   .emp-profile{
+ <style type="text/css">
+ p{
+     font-family: serif;
+     line-height: 1.75em;
+     font-size: 18px;
+ }
+ i{
+     font-family: sans;
+     color: orange;
+ }
+ .emp-profile{
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
@@ -219,6 +219,7 @@
                                 </div>
                             </div>
                             @foreach($reservations as $reservation)
+                            <hr>
                             <div class="row">
                                 <div class="col-md-4">
                                     <p>{{ $reservation->user->name }}</p>
@@ -234,77 +235,76 @@
                                 <div class="col-md-4">
                                     <label>Vendor</label>
                                 </div>
-                                <!-- <div class="col-md-3">
-                                    <label>Status</label>
-                                </div> -->
+                                <div class="col-md-4">
+                                    <label>Bukti Pembayaran</label>
+                                </div>
                                 <div class="col-md-4">
                                     <label>Progres</label>
                                 </div>
-                                <div class="col-md-4"></div>
                             </div>
-                            @foreach($reservation->vendors()->withPivot('status')->get() as $vendor)
+                            @foreach($reservation->vendors()->withPivot('status', 'payment_proof')->get() as $vendor)
+                            <hr>
                             <div class="row" style="padding-left: 20px;">
                                 <div class="col-md-4">
                                     <p>{{$vendor->name}}</p>
                                 </div>
-                                <!-- <div class="col-md-3"> -->
-                                <!-- </div> -->
+                                <div class="col-md-4">
+                                    <img style="width: 100%" src="/storage/{{$vendor->pivot->payment_proof}}">
+                                </div>
                                 <div class="col-md-4">
                                     <div class="progress">
-                                      <div class="progress-bar" id="vendor-progress-{{$vendor->id}}" role="progressbar"
-                                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; height: 30px;">
-                                      ({{$vendor->pivot->status}})
-                                  </div>
-                              </div>
-                              <div class="col-md-4"></div>
-                          </div>
-                      </div>
-                      @endforeach
-                      @endforeach
-                  </div>
-              </div>
-          </div>
-      </div>
-  </form>
-</div>
+                                        <div class="progress-bar" id="vendor-progress-{{$vendor->id}}" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; height: 30px;">
+                                            ({{$vendor->pivot->status}})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="{{ asset('web/assets/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('popper/popper.min.js') }}"></script>
-<script src="{{ asset('tether/tether.min.js') }}"></script>
-<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('smooth-scroll/smooth-scroll.js') }}"></script>
-<script src="{{ asset('dropdown/js/script.min.js') }}"></script>
-<script src="{{ asset('touch-swipe/jquery.touch-swipe.min.js') }}"></script>
-<script src="{{ asset('jquery-mb-ytplayer/jquery.mb.ytplayer.min.js') }}"></script>
-<script src="{{ asset('jquery-mb-vimeo_player/jquery.mb.vimeo_player.js') }}"></script>
-<script src="{{ asset('masonry/masonry.pkgd.min.js') }}"></script>
-<script src="{{ asset('imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('bootstrap-carousel-swipe/bootstrap-carousel-swipe.js') }}"></script>
-<script src="{{ asset('viewport-checker/jquery.viewportchecker.js') }}"></script>
-<script src="{{ asset('theme/js/script.js') }}"></script>
-<script src="{{ asset('mobirise-slider-video/script.js') }}"></script>
-<script src="{{ asset('mobirise-gallery/player.min.js') }}"></script>
-<script>
-    $(document).ready(function(){
-        $('.progress-bar').each(function(){
-            var progress = this.innerText;
-            if (progress.includes('waiting')) {
-                $(this).width('40%');
-                $(this).text('40% ' + progress);
-            }else if(progress.includes('DP')){
-                $(this).width('60%');
-                $(this).text('60% ' + progress);
-            }else if(progress.includes('accepted')){
-                $(this).width('80%');
-                $(this).text('80% ' + progress);
-            }else if(progress.includes('pelunasan')){
-                $(this).width('100%');
-                $(this).text('100% ' + progress);
-            }
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="{{ asset('web/assets/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('popper/popper.min.js') }}"></script>
+    <script src="{{ asset('tether/tether.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('smooth-scroll/smooth-scroll.js') }}"></script>
+    <script src="{{ asset('dropdown/js/script.min.js') }}"></script>
+    <script src="{{ asset('touch-swipe/jquery.touch-swipe.min.js') }}"></script>
+    <script src="{{ asset('jquery-mb-ytplayer/jquery.mb.ytplayer.min.js') }}"></script>
+    <script src="{{ asset('jquery-mb-vimeo_player/jquery.mb.vimeo_player.js') }}"></script>
+    <script src="{{ asset('masonry/masonry.pkgd.min.js') }}"></script>
+    <script src="{{ asset('imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('bootstrap-carousel-swipe/bootstrap-carousel-swipe.js') }}"></script>
+    <script src="{{ asset('viewport-checker/jquery.viewportchecker.js') }}"></script>
+    <script src="{{ asset('theme/js/script.js') }}"></script>
+    <script src="{{ asset('mobirise-slider-video/script.js') }}"></script>
+    <script src="{{ asset('mobirise-gallery/player.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.progress-bar').each(function(){
+                var progress = this.innerText;
+                if (progress.includes('waiting')) {
+                    $(this).width('40%');
+                    $(this).text('40% ' + progress);
+                }else if(progress.includes('DP')){
+                    $(this).width('60%');
+                    $(this).text('60% ' + progress);
+                }else if(progress.includes('accepted')){
+                    $(this).width('80%');
+                    $(this).text('80% ' + progress);
+                }else if(progress.includes('pelunasan')){
+                    $(this).width('100%');
+                    $(this).text('100% ' + progress);
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
