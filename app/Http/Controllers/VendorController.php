@@ -46,7 +46,7 @@ class VendorController extends Controller
     	$vendor = Vendor::create([
             'category_id' => $request->category_id,
             'name' => $request->name,
-            'information' => $request->information,
+            'description' => $request->description,
             'price' => $request->price,
             'photo' => $request->photo->store('vendor', 'public')
         ]);
