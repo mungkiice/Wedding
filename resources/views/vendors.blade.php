@@ -117,6 +117,8 @@
 						</figure>
 						<div class="product-info">
 							<h6>{{ $vendor->name }}</h6>
+							<hr>
+							<p style="font-size: .7em;text-align: justify;">{{$vendor->description}}</p>
 							<p>Rp. {{ number_format($vendor->price) }}</p>
 							<a href="/user/{{$vendor->id}}/cart" class="site-btn btn-line">ADD</a>
 						</div>

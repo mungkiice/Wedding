@@ -72,7 +72,7 @@ class VendorController extends Controller
             $vendor->update([
                 'category_id' => $request->category_id ?: $vendor->category_id,
                 'name' => $request->name ?: $vendor->name,
-                'information' => $request->information ?: $vendor->information,
+                'description' => $request->description ?: $vendor->description,
                 'price' => $request->price ?: $vendor->price,
                 'photo' => $path ?: $vendor->photo
             ]);

@@ -181,7 +181,7 @@
                         <h4 class="card-title mbr-fonts-style display-7">{{ $gallery->celeb }}</h4>
                         <p class="mbr-text mbr-fonts-style align-center display-7">
                             <div class="row">
-<!--                                 @foreach($gallery->vendors as $vendor)
+                           <!--      @foreach($gallery->vendors as $vendor)
                                 <span class="col-md-5">{{ $vendor->category->name }}</span>
                                 <span class="col-md-2"> : </span>
                                 <span class="col-md-5" style="padding: 0">{{ $vendor->name }}</span>
@@ -468,12 +468,12 @@
                     gallery: {
                         enabled: true,
                         navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-                image: {
-                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-                }
-            });
+                         // Will preload 0 - before current, and 1 after the current image
+                         preload: [0,1]
+                     },
+                     image: {
+                    }
+                });
             });
         });
     </script>
