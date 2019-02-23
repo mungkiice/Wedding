@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-    	$galleries = Gallery::inRandomOrder()->take(3)->get();
+    	$galleries = Gallery::inRandomOrder()->get();
         return view('home', compact('galleries'));
     }
 

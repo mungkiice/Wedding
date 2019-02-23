@@ -253,7 +253,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="progress">
-                                        <div class="progress-bar" id="vendor-progress-{{$vendor->id}}" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; height: 30px;">
+                                        <div class="progress-bar" id="vendor-progress-{{$vendor->id}}" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%;">
                                             ({{$vendor->pivot->status}})
                                         </div>
                                     </div>

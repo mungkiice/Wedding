@@ -63,7 +63,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
       reserved.
     </footer>
 
-    <aside class="control-sidebar control-sidebar-dark">
+    <!-- <aside class="control-sidebar control-sidebar-dark">
       <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
         <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
         <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
@@ -234,22 +234,22 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
           </form>
         </div>
       </div>
-    </aside>
+    </aside> -->
     <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->
-   <div class="control-sidebar-bg"></div>
+   <!-- <div class="control-sidebar-bg"></div> -->
  </div>
 
  <script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/fastclick/lib/fastclick.js') }}"></script>
- <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script><script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+ <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
+ <script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
  <script src="{{asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
  <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
  <script src="{{ asset('adminlte/bower_components/ckeditor/ckeditor.js') }}"></script>
  <script src="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-
  <script src="{{asset('adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
  <script>
   // $(function () {

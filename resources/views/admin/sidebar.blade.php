@@ -34,11 +34,11 @@
             <i class="fa fa-edit"></i> <span>Layanan</span>
           </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/admin/aboutus">
             <i class="fa fa-edit"></i> <span>Tentang Kami</span>
           </a>
-        </li>
+        </li> -->
       </ul>
     </section>
   </aside>
