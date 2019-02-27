@@ -21,10 +21,10 @@
       <li class="nav-item">
         <a class="nav-link link text-black display-7" href="/reservation" target="_blank">Reservasi</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link link text-black display-7" href="/user/cart">Vendor</a>
-      </li>
       @endif
+      <li class="nav-item">
+        <a class="nav-link link text-black display-7" href="/vendors">Vendor</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link link text-black display-7" href="/aboutus">Tentang Kami</a>
       </li>

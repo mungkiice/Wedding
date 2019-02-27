@@ -101,6 +101,8 @@
 						else{
 							alert("Tanggal ini sudah penuh order");
 						}
+					}else{
+						alert("Tanggal sudah terlewat");
 					}
 				}
 			});

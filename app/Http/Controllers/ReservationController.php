@@ -40,7 +40,7 @@ class ReservationController extends Controller
                 ]);
             }
         }
-        return redirect('/vendors');
+        return redirect('/profile');
     }
 
     public function addVendors(Request $request)
