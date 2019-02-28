@@ -120,7 +120,7 @@
                         @foreach($galleries as $gallery)
                         <div class="mbr-gallery-item mbr-gallery-item--p2" data-video-url="false" data-tags="Awesome">
                             <div href="#lb-gallery1-{{ $gallery->id }}" data-slide-to="0" data-toggle="modal">
-                                <img src="/storage/{{$gallery->photos->first()->path}}" alt="" title="">
+                                <img src="/storage/{{optional($gallery->photos->first())->path}}" alt="" title="">
                                 <span class="icon-focus"></span>
                                 <span class="mbr-gallery-title mbr-fonts-style display-7">{{ $gallery->celeb }}</span>
                             </div>
