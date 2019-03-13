@@ -103,7 +103,7 @@
 				<div id="vendor-item" class="mix col-lg-3 col-md-6 best" data-price="{{$vendor->price}}">
 					<div class="product-item">
 						<figure>
-							<img src="{{ '/storage/' . $vendor->photo }}" alt="">
+							<img style="width: 300px; height: 200px;" src="{{ '/storage/' . $vendor->photo }}" alt="">
 <!-- 							<div class="pi-meta">
 								<div class="pi-m-left">
 									<img src="{{ asset('theplaza/img/icons/eye.png') }}" alt="">
@@ -118,7 +118,7 @@
 						<div class="product-info">
 							<h6>{{ $vendor->name }}</h6>
 							<hr>
-							<p style="font-size: .7em;text-align: justify;">{{$vendor->description}}</p>
+							<p style="font-size: .7em;text-align: justify; height: 100px;">{{$vendor->description}}</p>
 							<p>Rp. {{ number_format($vendor->price) }}</p>
 							<a href="/user/{{$vendor->id}}/cart" class="site-btn btn-line">ADD</a>
 						</div>

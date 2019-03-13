@@ -92,10 +92,10 @@
 			</div>
 			<div class="row cart-buttons">
 				<div class="col-lg-5 col-md-5">
-					<div class="site-btn btn-continue"><a href="/vendors" style="color: white;">Cari vendor</a></div>
+						<a class="site-btn btn-continue" href="/vendors" style="color: white;">Cari vendor</a>
 				</div>
 				<div class="col-lg-7 col-md-7 text-lg-right text-left">
-					<div class="site-btn btn-clear"><a href="/user/cart/clear" style="color: black">Hapus semua vendor</a></div>
+					<a class="site-btn btn-clear" href="/user/cart/clear" style="color: black">Hapus semua vendor</a>
 					<!-- <div class="site-btn btn-line btn-update">Update Cart</div> -->
 				</div>
 			</div>
@@ -136,10 +136,12 @@
 							<!-- <p>Final Info</p> -->
 							<ul class="cart-total-card">
 								<li>Subtotal Vendor<span>Rp. {{number_format($subtotal)}}</span></li>
+								@if(optional($reservation)->packets)
 								@foreach($reservation->packets as $packet)
 								<li>{{$packet->name}}<span>Rp. {{number_format($packet->price)}}</span></li>
 								@endforeach
 								<li class="total">Total<span>Rp. {{number_format(optional($reservation->packets())->sum('price') + $subtotal)}}</span></li>
+								@endif
 							</ul>
 							<a class="site-btn btn-full" onclick="event.preventDefault();
 							postVendors();">Proses Reservasi</a>

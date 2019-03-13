@@ -16,7 +16,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Autentikasi
-Route::get('/login', 'LoginController@showLoginForm')->middleware('guest');
+Route::get('/login', 'LoginController@showLoginForm')->middleware('guest')->name('login');
 Route::post('/login', 'LoginController@login')->middleware('guest');
 Route::post('/logout', 'LoginController@logout')->middleware('auth');
 Route::get('/register', 'RegisterController@showRegistrationForm')->middleware('guest');
@@ -25,6 +25,7 @@ Route::post('/register', 'RegisterController@register');
 //Profile page dan edit photo profil
 Route::get('/profile', 'UserController@showProfile')->middleware('auth');
 Route::post('/profile/edit', 'UserController@update')->middleware('auth');
+Route::get('/gallery/{galleryID}', 'GalleryController@show');
 
 Route::get('/user/cart', 'UserController@showCart')->middleware('auth');
 Route::get('/user/cart/clear', 'UserController@clearCart')->middleware('auth');
@@ -63,6 +64,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	Route::put('/vendor/{vendorID}', 'VendorController@update');
 	Route::delete('/vendor/{vendorID}', 'VendorController@destroy');
 	Route::get('/vendor/{vendorID}/edit', 'VendorController@edit');
+
+	Route::get('/promo', 'PromoController@index');
+	Route::post('/promo', 'PromoController@store');
+	Route::get('/promo/create', 'PromoController@create');
+	Route::get('/promo/{promoID}', 'PromoController@show');
+	Route::put('/promo/{promoID}', 'PromoController@update');
+	Route::delete('/promo/{promoID}', 'PromoController@destroy');
+	Route::get('/promo/{promoID}/edit', 'PromoController@edit');
 
 	Route::get('/gallery', 'GalleryController@index');
 	Route::post('/gallery', 'GalleryController@store');

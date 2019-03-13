@@ -37,11 +37,11 @@
           <div class="form-group input-group">
            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
            <input type="text" class="form-control" placeholder="username anda " name="username" />
-         </div>
-         <div class="form-group input-group">
-           <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-           <input type="password" class="form-control"  placeholder="password anda" name="password" />
-         </div>
+        </div>
+        <div class="form-group input-group">
+         <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+         <input type="password" class="form-control"  placeholder="password anda" name="password" />
+       </div>
 <!--          <div class="form-group">
            <label class="checkbox-inline">
              <input type="checkbox" /> Remember me

@@ -16,14 +16,12 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->enum('status', [
-                'cancel',
-                'perencanaan',
-                'menunggu verifikasi',
+                'belum dikonfirmasi',
                 'menunggu hari H',
-                'selesai'
-            ])->default('perencanaan');
+                'dibatalkan'
+            ])->default('belum dikonfirmasi');
             $table->decimal('price', 13, 0)->default(0);
             $table->timestamps();
 

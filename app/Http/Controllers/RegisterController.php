@@ -18,7 +18,8 @@ class RegisterController extends Controller
 			'name' => 'required',
 			'email' => 'required|unique:users',
 			'password' => 'required|min:6|confirmed',
-			'username' => 'required|unique:users'
+			'username' => 'required|unique:users',
+			'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000'
 		]);
 		//membuat akun user sesuai inputan
 		$user = User::create([

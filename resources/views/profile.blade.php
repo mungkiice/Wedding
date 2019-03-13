@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
- <style type="text/css">
- p{
-     font-family: serif;
-     line-height: 1.75em;
-     font-size: 18px;
- }
- i{
-     font-family: sans;
-     color: orange;
- }
- .emp-profile{
+   <style type="text/css">
+   p{
+       font-family: serif;
+       line-height: 1.75em;
+       font-size: 18px;
+   }
+   i{
+       font-family: sans;
+       color: orange;
+   }
+   .emp-profile{
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
@@ -103,6 +103,16 @@
     font-weight: 600;
     color: #0062cc;
 }
+label {
+   cursor: pointer;
+   /* Style as you please, it will become the visible UI component. */
+}
+
+#upload-photo {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
 </style>
 <title>SidoRabi | Wedding Organizer</title>
 <link rel="stylesheet" href="{{ asset('web/assets/mobirise-icons/mobirise-icons.css') }}">
@@ -130,74 +140,67 @@
                 <div class="col-md-4">
                     <div class="profile-img">
                         <img src="/storage/{{auth()->user()->photo}}">
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="photo"/>
-                        </div>
+                        <label class="file btn btn-lg btn-primary" for="upload-photo">Ubah Foto</label>
+                        <input type="file" name="photo" id="upload-photo"/>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h5>
-                            {{ auth()->user()->name }}
-                        </h5>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-<!--                     <div class="profile-work">
-                        <p>Wedding Date</p>
-                        <a href="">20 Januari 2018 </a><br/>
-                    </div> -->
+                    <h6 style="margin: 10px auto; width: 70%;">DP maksimal tanggal         : <br>{{ date('d M Y', strtotime((new Carbon\Carbon($reservations->first()->updated_at))->addDays(7))) }}</h6><h6 style="margin: 10px auto; width: 70%;">Pelunasan maksimal tanggal : <br>{{ date('d M Y', strtotime((new Carbon\Carbon($reservations->first()->date))->subDays(7))) }}</h6>
                 </div>
                 <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Username</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{ $user->username }}</p>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="profile-head">
+                                <h5>
+                                    {{ auth()->user()->name }}
+                                </h5>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Nama</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{ $user->name }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Email</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{ $user->email }}</p>
-                                </div>
-                            </div>
-<!--                             <div class="row">
-                                <div class="col-md-6">
-                                    <label>Nomor Telepon</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>123 456 7890</p>
-                                </div>
-                            </div>
-                            <div class="row">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Username</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ $user->username }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Nama</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ $user->name }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ $user->email }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Alamat</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Jalan Sigura - sigura</p>
+                                        </div>
+                                    </div>
+                            <!-- <div class="row">
                                 <div class="col-md-6">
                                     <label>The name of bride and groom </label>
                                 </div>
@@ -207,39 +210,45 @@
                             </div> -->
                         </div>
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <h6 style="color: #b1a374;">30% DP Keseluruhan (maksimal 7 hari setelah pemesanan), pelunasan (maksimal 7 hari sebelum hari H)</h6>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label>Reservasi Atas Nama</label>
+                                    <label style="font-size: 15px;">Reservasi Atas Nama</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <label>Tanggal</label>
+                                    <label style="font-size: 15px;">Tanggal</label>
                                 </div>
                                 <div class="col-md-5">
-                                    <label>Status Reservasi</label>
+                                    <label style="font-size: 15px;">Status Reservasi</label>
                                 </div>
                             </div>
                             @foreach($reservations as $reservation)
                             <hr>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <p>{{ $reservation->user->name }}</p>
+                                    <p style="font-size: 15px;">{{ $reservation->user->name }}</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p>{{ date('D, d M Y', strtotime($reservation->date)) }}</p>
+                                    @if($reservation->date != null)
+                                    <p style="font-size: 15px;">{{ date('D, d M Y', strtotime($reservation->date)) }}</p>
+                                    @else
+                                    <p style="font-size: 15px;">-</p>
+                                    @endif
                                 </div>
                                 <div class="col-md-5">
-                                    <p>{{ $reservation->status }}</p>
+                                    <p style="font-size: 15px;">{{ $reservation->status }}</p>
                                 </div>
                             </div>
                             <div class="row" style="padding-left: 20px;">
                                 <div class="col-md-4">
-                                    <label>Vendor</label>
+                                    <label style="font-size: 15px;">Vendor</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Bukti Pembayaran</label>
+                                    <label style="font-size: 15px;">Bukti Pembayaran</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Progres</label>
+                                    <label style="font-size: 15px;">Progres</label>
                                 </div>
                             </div>
                             @foreach($reservation->vendors()->withPivot('status', 'payment_proof')->get() as $vendor)
@@ -263,6 +272,16 @@
                             @endforeach
                         </div>
                     </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+<!--                     <div class="profile-work">
+                        <p>Wedding Date</p>
+                        <a href="">20 Januari 2018 </a><br/>
+                    </div> -->
                 </div>
             </div>
         </form>
@@ -290,16 +309,13 @@
         $(document).ready(function(){
             $('.progress-bar').each(function(){
                 var progress = this.innerText;
-                if (progress.includes('waiting')) {
-                    $(this).width('40%');
-                    $(this).text('40% ' + progress);
+                if (progress.includes('menunggu')) {
+                    $(this).width('0%');
+                    $(this).text('0% ' + progress);
                 }else if(progress.includes('DP')){
-                    $(this).width('60%');
-                    $(this).text('60% ' + progress);
-                }else if(progress.includes('accepted')){
-                    $(this).width('80%');
-                    $(this).text('80% ' + progress);
-                }else if(progress.includes('pelunasan')){
+                    $(this).width('30%');
+                    $(this).text('30% ' + progress);
+                }else if(progress.includes('lunas')){
                     $(this).width('100%');
                     $(this).text('100% ' + progress);
                 }

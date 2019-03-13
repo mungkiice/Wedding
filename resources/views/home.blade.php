@@ -119,7 +119,8 @@
                     <div class="mbr-gallery-layout-default">
                         @foreach($galleries as $gallery)
                         <div class="mbr-gallery-item mbr-gallery-item--p2" data-video-url="false" data-tags="Awesome">
-                            <div href="#lb-gallery1-{{ $gallery->id }}" data-slide-to="0" data-toggle="modal">
+                            <!-- <div href="#lb-gallery1-{{ $gallery->id }}" data-slide-to="0" data-toggle="modal"> -->
+                            <div onclick="location.href='/gallery/{{$gallery->id}}'">
                                 <img src="/storage/{{optional($gallery->photos->first())->path}}" alt="" title="">
                                 <span class="icon-focus"></span>
                                 <span class="mbr-gallery-title mbr-fonts-style display-7">{{ $gallery->celeb }}</span>
@@ -172,6 +173,7 @@
         </div>
     </section>
 
+    @if(!$promos->isEmpty())
     <section class="features15 cid-rhAA0jQBzR" id="features15-1k">    
         <div class="container">
             <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
@@ -179,45 +181,21 @@
             <h3 class="mbr-section-subtitle display-5 align-center mbr-fonts-style">
             Promo Harga Vendor yang Bekerja Sama Dengan Kami</h3>
             <div class="media-container-row container pt-5 mt-2">
+                @foreach($promos as $promo)
                 <div class="col-12 col-md-6 mb-4 col-lg-3">
                     <div class="card flip-card p-5 align-center">
                         <div class="card-front card_cont">
-                            <img src="{{ asset('images/jumbotron.jpg') }}" alt="Mobirise">
+                            <img style="width: 100%;" src="/storage/{{ $promo->image }}" alt="Mobirise">
                         </div>
                         <div class="card_back card_cont">
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 mb-4 col-lg-3">
-                    <div class="card flip-card p-5 align-center">
-                        <div class="card-front card_cont">
-                            <img src="{{ asset('images/jumbotron2.jpg') }}" alt="Mobirise">
-                        </div>
-                        <div class="card_back card_cont">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mb-4 col-lg-3">
-                    <div class="card flip-card p-5 align-center">
-                        <div class="card-front card_cont">
-                            <img src="{{ asset('images/background5.jpg') }}" alt="Mobirise">
-                        </div>
-                        <div class="card_back card_cont">      
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-12 col-md-6 mb-4 col-lg-3">
-                    <div class="card flip-card p-5 align-center">
-                        <div class="card-front card_cont">
-                            <img src="{{ asset('images/background3.jpg') }}" alt="Mobirise">
-                        </div>
-                        <div class="card_back card_cont">      
-                        </div>
-                    </div> 
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
 
     <section class="map1 cid-rhAHxlWJGQ" id="map1-1r"> 
         <div class="google-map">

@@ -17,10 +17,9 @@ class CreateReservationVendorTable extends Migration
             $table->integer('reservation_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
             $table->enum('status', [
-                'waiting',
+                'menunggu',
                 'DP',
-                'accepted',
-                'pelunasan'
+                'lunas'
             ]);
             $table->string('payment_proof')->nullable();
 

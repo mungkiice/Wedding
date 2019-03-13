@@ -15,6 +15,9 @@
           <a href="/admin/reservation">
             <i class="fa fa-file"></i>
             <span>Reservasi</span>
+            @if(App\Reservation::where('status', 'belum dikonfirmasi')->count() > 0)
+            <span style="background-color: red; padding: 1px 5px; border-radius: 5px; color: white">{{App\Reservation::where('status', 'belum dikonfirmasi')->count()}}</span>
+            @endif
           </a>
         </li>
         <li>
@@ -34,11 +37,11 @@
             <i class="fa fa-edit"></i> <span>Layanan</span>
           </a>
         </li>
-        <!-- <li>
-          <a href="/admin/aboutus">
-            <i class="fa fa-edit"></i> <span>Tentang Kami</span>
+        <li>
+          <a href="/admin/promo">
+            <i class="fa fa-image"></i> <span>Promo</span>
           </a>
-        </li> -->
+        </li>
       </ul>
     </section>
   </aside>

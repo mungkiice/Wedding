@@ -52,7 +52,6 @@
 				</form>
 			</div>
 			<!-- /.box -->
-
 		</form>
 	</div>
 	<!-- /.box-body -->

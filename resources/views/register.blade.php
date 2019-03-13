@@ -42,10 +42,20 @@
                                 <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
                                 <input type="text" class="form-control" placeholder="nama anda" name="name" required />
                             </div>
+                            @if ($errors->has('username'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong style="color: red">nama pengguna sudah terpakai</strong>
+                            </span>
+                            @endif
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                <input type="text" class="form-control" placeholder="username anda" name="username" required />
+                                <input type="text" class="form-control" placeholder="nama pengguna anda" name="username" required />
                             </div>
+                            @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong style="color: red">email sudah terpakai</strong>
+                            </span>
+                            @endif
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
                                 <input type="email" class="form-control" placeholder="email anda" name="email" required />

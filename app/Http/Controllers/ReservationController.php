@@ -27,10 +27,18 @@ class ReservationController extends Controller
         if ($request->date == null) {
             return back();
         }
-        $reservation = Reservation::create([
-            'user_id' => auth()->user()->id,
-            'date' => Carbon::parse($request->date)->format('Y-m-d'),
-        ]);
+
+        $reservation = auth()->user()->reservations()->where('status', 'belum dikonfirmasi')->latest()->first();
+        if($reservation == null){
+            $reservation = Reservation::create([
+                'user_id' => auth()->user()->id,
+                'date' => Carbon::parse($request->date)->format('Y-m-d'),
+            ]);
+        }else{
+            $reservation->update([
+                'date' => Carbon::parse($request->date)->format('Y-m-d'),
+            ]);
+        }
         foreach ($request->packetID as $packetID) {
             $packet = Packet::find($packetID);
             if ($packet != null) {
@@ -40,25 +48,33 @@ class ReservationController extends Controller
                 ]);
             }
         }
-        return redirect('/profile');
+        return redirect('/vendors');
     }
 
     public function addVendors(Request $request)
     {
-        $reservation = auth()->user()->reservations()->latest()->first();
-        foreach ($request->vendorID as $vendorID) {
-            $vendor = Vendor::find($vendorID);
-            if ($vendor != null) {
-                $reservation->update([
-                    'price' => $vendor->price + $reservation->price
-                ]);
-                $reservation->vendors()->attach($vendorID);
-            }
+        $reservation = auth()->user()->reservations()->where('status', 'belum dikonfirmasi')->latest()->first();
+        if($reservation == null){
+            $reservation = Reservation::create([
+               'user_id' => auth()->user()->id,
+               'status' => 'belum dikonfirmasi'
+               // 'date' => Carbon::parse($request->date)->format('Y-m-d')
+           ]);
+        }else{
+            foreach ($request->vendorID as $vendorID) {
+                $vendor = Vendor::find($vendorID);
+                if ($vendor != null) {
+                    $reservation->update([
+                        'price' => $vendor->price + $reservation->price
+                    ]);
+                    $reservation->vendors()->attach($vendorID);
+                }
+            }  
+            $reservation->update([
+                'status' => 'menunggu hari H'
+            ]);
+            auth()->user()->cart->vendors()->detach();
         }
-        $reservation->update([
-            'status' => 'menunggu verifikasi'
-        ]);
-        auth()->user()->cart->vendors()->detach();
         return redirect('/profile');
     }
 
@@ -101,14 +117,11 @@ class ReservationController extends Controller
             $vendor = $reservation->vendors()->where('id', $vendorID)->withPivot('status')->first();   
             if ($vendor != null) {
                 switch ($vendor->pivot->status) {
-                    case 'waiting':
+                    case 'menunggu':
                     $vendor->pivot->status = 'DP';
                     break;
                     case 'DP':
-                    $vendor->pivot->status = 'accepted';
-                    break;
-                    case 'accepted':
-                    $vendor->pivot->status = 'pelunasan';
+                    $vendor->pivot->status = 'lunas';
                     break;
                 }
                 $vendor->pivot->payment_proof = $request->photo->store('payment', 'public');

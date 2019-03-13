@@ -17,13 +17,14 @@
         <a class="nav-link link text-black display-7" href="/">
         Beranda</a>
       </li>
-      @if(Auth::check())
       <li class="nav-item">
-        <a class="nav-link link text-black display-7" href="/reservation" target="_blank">Reservasi</a>
+        <a class="nav-link link text-black display-7" href="/reservation">Reservasi</a>
       </li>
-      @endif
       <li class="nav-item">
         <a class="nav-link link text-black display-7" href="/vendors">Vendor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link link text-black display-7" href="/user/cart">Keranjang</a>
       </li>
       <li class="nav-item">
         <a class="nav-link link text-black display-7" href="/aboutus">Tentang Kami</a>

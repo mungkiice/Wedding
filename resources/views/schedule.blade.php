@@ -83,8 +83,8 @@
 				@endforeach
 				],
 				dayClick: function(date, jsEvent, view) {
-					if (moment().format('YYYY-MM-DD') === date.format('YYYY-MM-DD') || date.isAfter(moment())) {
-
+					@if(Auth::check())
+					if (moment().format('YYYY-MM-DD') === date.format('YYYY-MM-DD') || date.isAfter(moment().add(30, 'days'))) {
 						var eventsCount = 0;
 						var date = date.format('YYYY-MM-DD');
 						$('#calendar').fullCalendar('clientEvents', function(event) {
@@ -102,8 +102,11 @@
 							alert("Tanggal ini sudah penuh order");
 						}
 					}else{
-						alert("Tanggal sudah terlewat");
+						alert("Untuk reservasi diharuskan 30 hari sebelum hari H");
 					}
+					@else
+					window.location = '/login';
+					@endif
 				}
 			});
 		});

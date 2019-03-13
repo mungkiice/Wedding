@@ -13,6 +13,7 @@ class LoginController extends Controller
         return view('login');
     }
     public function login(Request $request) {
+
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             if(Auth::user()->is_admin){
                 return redirect('/admin');

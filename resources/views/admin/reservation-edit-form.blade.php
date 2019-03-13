@@ -43,10 +43,9 @@
 						<div class="form-group">
 							<label>Status Baru :</label>
 							<select class="form-control select2" style="width: 100%;" name="status">
-								<option value="cancel">cancel</option>
-								<option value="menunggu verifikasi">menunggu verifikasi</option>
+								<option value="dibatalkan">dibatalkan</option>
+								<option value="belum dikonfirmasi">belum dikonfirmasi</option>
 								<option value="menunggu hari H">menunggu hari H</option>
-								<option value="selesai">selesai</option>
 							</select>
 						</div>
 					</div>

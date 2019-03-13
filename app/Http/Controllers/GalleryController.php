@@ -17,7 +17,7 @@ class GalleryController extends Controller
     public function show($galleryID)
     {
     	$gallery = Gallery::find($galleryID);
-        return view();
+        return view('gallery', compact('gallery'));
     }
 
     public function create()
