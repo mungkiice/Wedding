@@ -55,7 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	Route::post('/aboutus', 'AboutUsController@updateAboutUs');
 	
 	Route::get('/service', 'ServiceController@adminShowService');
-	Route::post('/service', 'ServiceController@updateService');
+	Route::post('/service', 'ServiceController@store');
 	
 	Route::get('/vendor', 'VendorController@adminIndex');
 	Route::post('/vendor', 'VendorController@store');

@@ -9,14 +9,23 @@ class ServiceController extends Controller
 {
 	public function showService()
 	{
-		$service = Service::first();
-		return view('service', compact('service'));
+		$services = Service::all();
+		return view('service', compact('services'));
 	}
 
 	public function adminShowService()
 	{
 		$service = Service::first();
 		return view('admin.service-form', compact('service'));    	
+	}
+
+	public function store(Request $request)
+	{
+		Service::create([
+			'category' => $request->category,
+			'photo' => $request->photo->store('service', 'public')
+		]);
+		return back();	
 	}
 
 	public function updateService(Request $request)

@@ -15,7 +15,12 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('text');
+            $table->enum('category', [
+                'PL Malang',
+                'PL Jawa Tengah',
+                'PL Bali'
+            ]);
+            $table->string('photo');
             $table->timestamps();
         });
     }

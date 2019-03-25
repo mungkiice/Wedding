@@ -23,17 +23,76 @@
   
 </head>
 <body>
-@include('nav')
+  @include('nav')
 
-<section class="engine"><a href="https://mobirise.info/u">bootstrap responsive templates</a></section><section class="mbr-gallery mbr-slider-carousel cid-rilSBcErFX" id="gallery2-22">
+  <section class="engine"><a href="https://mobirise.info/u">bootstrap responsive templates</a></section><section class="mbr-gallery mbr-slider-carousel cid-rilSBcErFX" id="gallery2-22">
 
-    
+
 
     <div class="container">
-        <div><!-- Filter --><div class="mbr-gallery-filter container gallery-filter-active"><ul buttons="0"><li class="mbr-gallery-filter-all"><a class="btn btn-md btn-primary-outline active display-7" href="">All</a></li></ul></div><!-- Gallery --><div class="mbr-gallery-row"><div class="mbr-gallery-layout-default"><div><div><div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="PL Malang"><div href="#lb-gallery2-22" data-slide-to="0" data-toggle="modal"><img src="{{ asset('images/195843-1124x791-800x563.jpg') }}" alt="" title=""><span class="icon-focus"></span></div></div><div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="PL Jawa Tengah"><div href="#lb-gallery2-22" data-slide-to="1" data-toggle="modal"><img src="{{ asset('images/gallery01.jpg') }}" alt="" title=""><span class="icon-focus"></span></div></div><div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="PL Bali"><div href="#lb-gallery2-22" data-slide-to="2" data-toggle="modal"><img src="{{ asset('images/gallery02.jpg') }}" alt="" title=""><span class="icon-focus"></span></div></div><div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="PL Malang"><div href="#lb-gallery2-22" data-slide-to="3" data-toggle="modal"><img src="{{ asset('images/195844-1126x793-800x563.jpg') }}" alt="" title=""><span class="icon-focus"></span></div></div><div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="PL Malang"><div href="#lb-gallery2-22" data-slide-to="4" data-toggle="modal"><img src="{{ asset('images/195845-1132x787-800x556.jpg') }}" alt="" title=""><span class="icon-focus"></span></div></div><div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="PL Jawa Tengah"><div href="#lb-gallery2-22" data-slide-to="5" data-toggle="modal"><img src="{{ asset('images/gallery01.jpg') }}" alt="" title=""><span class="icon-focus"></span></div></div></div></div><div class="clearfix"></div></div></div><!-- Lightbox --><div data-app-prevent-settings="" class="mbr-slider modal fade carousel slide" tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery2-22"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="carousel-inner"><div class="carousel-item"><img src="{{ asset('images/195843-1124x791.jpg') }}" alt="" title=""></div><div class="carousel-item"><img src="{{ asset('images/gallery01.jpg') }}" alt="" title=""></div><div class="carousel-item"><img src="{{ asset('images/gallery02.jpg') }}" alt="" title=""></div><div class="carousel-item active"><img src="{{ asset('images/195844-1126x793.jpg') }}" alt="" title=""></div><div class="carousel-item"><img src="{{ asset('images/195845-1132x787.jpg') }}" alt="" title=""></div><div class="carousel-item"><img src="{{ asset('images/gallery01.jpg') }}" alt="" title=""></div></div><a class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#lb-gallery2-22"><span class="mbri-left mbr-iconfont" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control carousel-control-next" role="button" data-slide="next" href="#lb-gallery2-22"><span class="mbri-right mbr-iconfont" aria-hidden="true"></span><span class="sr-only">Next</span></a><a class="close" href="#" role="button" data-dismiss="modal"><span class="sr-only">Close</span></a></div></div></div></div></div>
+      <div><!-- Filter -->
+        <div class="mbr-gallery-filter container gallery-filter-active">
+          <ul buttons="0">
+            <li class="mbr-gallery-filter-all">
+              <a class="btn btn-md btn-primary-outline active display-7" href="">All</a>
+            </li>
+          </ul>
+        </div><!-- Gallery -->
+        <div class="mbr-gallery-row">
+          <div class="mbr-gallery-layout-default">
+            @foreach($services as $service)
+            <div class="mbr-gallery-item mbr-gallery-item--p5" data-video-url="false" data-tags="{{$service->category}}">
+              <div href="#lb-gallery2-22" data-slide-to="0" data-toggle="modal">
+                <img src="{{'/storage/' . $service->photo}}" alt="" title="">
+                <span class="icon-focus"></span>
+              </div>
+            </div>
+            @endforeach                
+            <div class="clearfix"></div>
+          </div>
+        </div><!-- Lightbox -->
+        <div data-app-prevent-settings="" class="mbr-slider modal fade carousel slide" tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery2-22">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="carousel-inner">
+                  <div class="carousel-item">
+                    <img src="{{ asset('images/195843-1124x791.jpg') }}" alt="" title="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ asset('images/gallery01.jpg') }}" alt="" title="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ asset('images/gallery02.jpg') }}" alt="" title="">
+                  </div>
+                  <div class="carousel-item active">
+                    <img src="{{ asset('images/195844-1126x793.jpg') }}" alt="" title="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ asset('images/195845-1132x787.jpg') }}" alt="" title="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ asset('images/gallery01.jpg') }}" alt="" title="">
+                  </div>
+                </div>
+                <a class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#lb-gallery2-22">
+                  <span class="mbri-left mbr-iconfont" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control carousel-control-next" role="button" data-slide="next" href="#lb-gallery2-22">
+                  <span class="mbri-right mbr-iconfont" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <a class="close" href="#" role="button" data-dismiss="modal">
+                  <span class="sr-only">Close</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-</section>
+  </section>
 
 
   <script src="{{ asset('web/assets/jquery/jquery.min.js') }}"></script>
