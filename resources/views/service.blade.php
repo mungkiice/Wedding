@@ -56,24 +56,11 @@
             <div class="modal-content">
               <div class="modal-body">
                 <div class="carousel-inner">
+                  @foreach($services as $service)
                   <div class="carousel-item">
-                    <img src="{{ asset('images/195843-1124x791.jpg') }}" alt="" title="">
+                    <img src="http://localhost:8000/storage/{{$service->photo}}" alt="" title="">
                   </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/gallery01.jpg') }}" alt="" title="">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/gallery02.jpg') }}" alt="" title="">
-                  </div>
-                  <div class="carousel-item active">
-                    <img src="{{ asset('images/195844-1126x793.jpg') }}" alt="" title="">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/195845-1132x787.jpg') }}" alt="" title="">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/gallery01.jpg') }}" alt="" title="">
-                  </div>
+                  @endforeach  
                 </div>
                 <a class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#lb-gallery2-22">
                   <span class="mbri-left mbr-iconfont" aria-hidden="true"></span>
