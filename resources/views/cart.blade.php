@@ -51,6 +51,7 @@
 
 	<!-- Page -->
 	<div class="page-area cart-page spad" style="margin-top: 20px;">
+		@if($cart != null)
 		<div class="container">
 			<div class="cart-table">
 				<table>
@@ -150,6 +151,9 @@
 				</div>
 			</div>
 		</div>
+		@else
+		<h4 style="text-align: center;">Masih dalam proses reservasi</h4>
+		@endif
 	</div>
 	<script src="{{ asset('theplaza/js/jquery-3.2.1.min.js') }}"></script>
 	<script src="{{ asset('theplaza/js/bootstrap.min.js') }}"></script>

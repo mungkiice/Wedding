@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VendorController extends Controller
 {
     public function index($categoryName = null)
     {
         $categories = Category::all();
+        $reservation = Auth::user()->reservations()->latest()->where('status', 'menunggu hari H')->first();
+        if($reservation != null){
+            $onProgress = true;
+        }else{
+            $onProgress = false;
+        }
         if ($categoryName != null) {
             $category = Category::where('name', $categoryName)->first();
             if ($category != null) {
@@ -19,7 +26,8 @@ class VendorController extends Controller
         }else{
             $vendors = Vendor::latest()->get();    
         }
-        return view('vendors', compact('categories', 'vendors'));
+
+        return view('vendors', compact('categories', 'vendors', 'onProgress'));
     }
 
 

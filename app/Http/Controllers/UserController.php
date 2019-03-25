@@ -19,15 +19,20 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $reservations = auth()->user()->reservations()->latest()->get();
-    	return view('profile', compact('user', 'reservations'));
+        return view('profile', compact('user', 'reservations'));
     }
 
     public function showCart()
     {
-        $cart = $this->createOrGetCart();
-        $subtotal = $cart->vendors()->sum('price');
-        $reservation = auth()->user()->reservations()->latest()->where('status', 'perencanaan')->first();
-    	return view('cart', compact('cart', 'subtotal', 'reservation'));
+        $reservation = auth()->user()->reservations()->latest()->where('status', 'menunggu hari H')->first();
+        if($reservation != null){
+            $cart = null;
+            $subtotal = $reservation->vendors()->sum('price');
+        }else{
+            $cart = $this->createOrGetCart();    
+            $subtotal = $cart->vendors()->sum('price');
+        }
+        return view('cart', compact('cart', 'subtotal', 'reservation'));
     }
 
     public function addToCart($vendorID)

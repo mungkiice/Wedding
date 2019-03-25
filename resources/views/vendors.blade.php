@@ -120,7 +120,9 @@
 							<hr>
 							<p style="font-size: .7em;text-align: justify; height: 100px;">{{$vendor->description}}</p>
 							<p>Rp. {{ number_format($vendor->price) }}</p>
+							@if(!$onProgress)
 							<a href="/user/{{$vendor->id}}/cart" class="site-btn btn-line">ADD</a>
+							@endif
 						</div>
 					</div>
 				</div>

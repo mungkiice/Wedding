@@ -20,7 +20,8 @@ class CreateReservationsTable extends Migration
             $table->enum('status', [
                 'belum dikonfirmasi',
                 'menunggu hari H',
-                'dibatalkan'
+                'dibatalkan',
+                'selesai'
             ])->default('belum dikonfirmasi');
             $table->decimal('price', 13, 0)->default(0);
             $table->timestamps();
